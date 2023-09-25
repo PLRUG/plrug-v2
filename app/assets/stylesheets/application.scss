@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'bootstrap';
+
+body
+{
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+header
+{
+  position: relative;
+
+  .navbar-default
+  {
+    position: relative;
+    background-color: #EEE;
+    padding-top: 15px;
+    padding-bottom: 0px;
+    border-radius: 0px;
+    border: 0px;
+
+    .red-bg
+    {
+      position: relative;
+      margin-left: -6px;
+      background-color: red;
+      border: 1px solid #EEE;
+      color: #FFF;
+      padding: 5px;
+    }
+
+    .white-bg
+    {
+      position: relative;
+      color: #000;
+      border: 1px solid #EEE;
+      padding: 5px; 
+    }
+
+    .navbar-brand
+    {
+      position: relative;
+      color: red;
+      font-size: 21px;
+    }
+
+    .btn-rop
+    {
+      position: relative;
+      margin-top: 5px;
+      border: 1px solid red;
+      padding: 8px;
+      padding-top: 10px;
+      background-color: transparent;
+      border-radius: 10px;
+      color: red !important;
+    }
+  }
+}
+
+.bold
+{
+  position: relative;
+  font-weight: bold;
+}
+
+.uppercase
+{
+  position: relative;
+  font-weight: bold;
+}
+
+.btn-rop
+{
+  position: relative;
+  background-color: red;
+  border: 1px solid red;
+  font-weight: bold;
+  padding: 12px;
+  text-transform: uppercase;
+  font-size: 13px;
+  transition: 0.2s;
+
+  &.hover, &:hover
+  {
+    position: relative;
+    background-color: #b31616;
+    border: 1px solid #b31616;
+    transition: 0.2s;
+  }
+}
+
+footer
+{
+  position: relative;
+  background-color: #EEE;
+  padding-top: 50px;
+  padding-bottom: 40px;
+
+  i
+  {
+    position: relative;
+    border-radius: 25px;
+    border: 1px solid #999;
+    background-color: #999;
+    color: #FFF;
+    padding: 5px;
+  }
+}

@@ -1,0 +1,13 @@
+= provide :title, ''
+= provide :description, ''
+= provide :keywords, ''
+
+%section{id: 'content'}
+  .container
+    .row
+      .col-md-12
+
+        .col-md-8.col-md-offset-2
+          .panel.panel-default
+            .panel-body
+              = render 'form', job: @job

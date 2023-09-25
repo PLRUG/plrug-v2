@@ -1,0 +1,27 @@
+= provide :title, ''
+= provide :description, ''
+= provide :title, ''
+
+%section{id: 'content'}
+  .container
+    .row
+      .col-md-12
+
+        .row
+          .col-md-12
+            .panel.panel-default
+              .panel-body
+                = link_to '',
+                class: 'btn btn-primary btn-lg top' do
+                  Post a Job
+
+        .row
+          .col-md-12
+            = render @jobs
+
+          .col-md-12
+            = paginate @jobs
+
+          - if @jobs.empty?
+            %p{class: 'well text-center'}
+              Sorry, no jobs found.

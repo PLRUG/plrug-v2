@@ -1,0 +1,64 @@
+= provide :title, ''
+= provide :description, ''
+= provide :keywords, ''
+
+#hero{class: 'text-center'}
+  .container
+    .row
+      .col-md-12{class: 'tex-center'}
+        %h1{class: 'title bold'} Ruby on Poland
+        %p{class: 'description'} Join the community creafted by <span class='bold black'>Ruby-lovers</span> for<br> web artisans, nerds  and passionates.<br>
+        %ul{class: 'list-unstyled list-inline actions'}
+          %li
+            = link_to '', class: 'btn btn-primary btn-lg btn-rop' do
+              %i{class: 'fa-brands fa-discord'}
+              Join Discord
+          %li
+            = link_to '', class: 'btn btn-primary btn-lg btn-rop' do
+              %i{class: 'fa-solid fa-envelope'}
+              E-mail
+
+#partners
+  .container
+    .row
+      .col-md-12
+
+        .row
+          .col-md-12{class: 'text-center'}
+            %h1{class: 'bold'} Partners
+
+        %br
+        .row
+          .col-md-12
+            - (1..6).each do |partner|
+              .col-md-2.col-sm-2
+                .jumbotron{class: 'partner'}
+
+        %br
+        .row
+          .col-md-12
+            .text-center
+              = link_to '#contact', class: 'btn btn-primary btn-lg btn-rop' do
+                Become a partner
+
+#contact
+  .container
+    .row
+      .col-md-4.col-md-offset-4
+        %h1{class: 'bold text-center'}Contact
+        %br
+
+        .row
+          .col-md-12
+            = simple_form_for(:contact) do |f|
+              = f.input :name, label: 'Name',
+              input_html: { class: 'form-control', placeholder: 'Name' }
+              = f.input :email, label: 'E-mail',
+              input_html: { class: 'form-control', placeholder: 'Email' }
+              = f.input :message, label: 'Message', as: :text, 
+              input_html: { class: 'form-control', placeholder: 'Message' }
+                
+              %br
+              .text-center
+                = f.submit 'Send Message', 
+                { class: 'btn btn-primary btn-lg btn-rop' }

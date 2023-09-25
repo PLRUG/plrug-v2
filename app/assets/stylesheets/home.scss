@@ -1,0 +1,73 @@
+.home
+{
+  #hero
+  {
+    position: relative;
+    margin-top: -20px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #EEE;
+
+    .black
+    {
+      position: relative;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    .title
+    {
+      position: relative;
+      font-size: 55px;
+      font-weight: bold;
+    }
+
+    .description
+    {
+      position: relative;
+      color: #999;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    .actions
+    {
+      position: relative;
+      margin-top: 20px;
+    }
+  }
+
+  #partners
+  {
+    position: relative;
+    border: 1px solid #EEE;
+    padding-top: 30px;
+    padding-bottom: 60px;
+
+    .partner
+    {
+      position: relative;
+      border: 1px solid #EEE;
+      background-color: #EEE;
+    }
+  }
+
+  #contact
+  {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 60px;
+  
+    form
+    {
+      position: relative;
+
+      textarea
+      {
+        position: relative;
+        height: 120px;
+        resize: none;
+      }
+    }
+  }
+}

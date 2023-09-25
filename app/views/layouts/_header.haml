@@ -1,0 +1,31 @@
+%header
+  %nav.navbar.navbar-default
+    .container.container-fluid
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header
+        %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{:href => "#", class: 'bold'} 
+          <span class='white-bg'>Ruby on</span>
+          <span class='red-bg'>Poland</span>
+      / Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li
+            = link_to jobs_path do
+              Jobs
+
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            = link_to '#partners' do
+              Partners
+          %li
+            = link_to '#discord',
+            class: 'btn btn-primary btn-md btn-rop' do
+              %i{class: 'fa-brands fa-discord'}
+              Join our Discord
+      / /.navbar-collapse
+    / /.container-fluid
