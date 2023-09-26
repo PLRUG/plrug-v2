@@ -1,1 +1,52 @@
-= simple_for_for(job) do |f|
+= form_for(job) do |f|
+  .field.col-md-12
+    = f.label :title, 'Job title'
+    = f.text_field :title, class: 'form-control', required: 'required',
+    placeholder: 'Job Title'
+  .field.col-md-12
+    = f.label :kind, 'Hiring type'
+    = f.collection_select(:kind, JobKind.order(:name), :id, :name,
+    { include_blank: 'Select' }, {class: 'form-control'})
+  .field.col-md-12
+    = f.label :location, 'Location'
+    = f.collection_select(:location, City.all, :id, :name, 
+    { include_blank: 'Select'}, {class: 'form-control'})
+  .field.col-md-10
+    = f.label :apply_path, 'Application path'
+    = f.url_field :apply_path, class: 'form-control',
+    required: 'required', placeholder: 'Application Link'
+  .field.col-md-2
+    = f.label :remote, 'Remote', style: 'margin-top: 10px;'
+    %br
+
+    %label{class: 'slidable-checkbox', style:'margin-top: -5px;'}
+      = f.check_box :remote
+      %span{class: 'slider'}
+  
+  .field.col-md-12
+    = f.label :description, 'Description'
+    = f.text_area :description, class: 'form-control', 
+    required: 'required', placeholder: 'Job Description',
+    style: 'height: 100px; resize: none;'
+  .field.col-md-12
+    = f.label :salary, 'Salary'
+    
+    .row
+      .col-md-3
+        = f.number_field :min_amount, class: 'form-control',
+        placeholder: 'Min', min: 0
+      .col-md-3
+        = f.number_field :max_amount, class: 'form-control',
+        placeholder: 'Max', min: 0
+      .col-md-3
+        = f.collection_select(:currency, Currency.all, :id, :name, 
+        { include_blank: 'Select' }, 
+        { class: 'form-control', value: 1, required: 'required' })
+      .col-md-3
+        = f.collection_select(:billing_type, BillingType.order(:name), 
+        :id, :name, { include_blank: 'Select' },
+        { class: 'form-control', required: 'required'})
+  
+  .actions.col-md-12
+    %br
+    = f.submit 'Save and continue', class: 'btn btn-primary btn-lg btn-rop'

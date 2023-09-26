@@ -1,0 +1,64 @@
+%footer{style: 'margin-top: 50px;'}
+  .container
+    .row
+      .col-md-8.col-md-offset-2
+        .row
+          .col-md-5
+            %h4{class: 'bold'} Ruby on Rails Job Board
+            %ul{class: 'list-unstyled'}
+              %li
+                = link_to '' do
+                  Terms of Service
+              %li
+                = link_to '' do
+                  Privacy Policy
+              %li
+                = link_to '' do
+                  Contact
+
+          .col-md-7
+            .col-md-12
+              %h4{class: 'bold'} Jobs
+
+            %br
+            .col-md-6
+              %ul{class: 'list-unstyled'}
+                %li
+                  = link_to '' do
+                    All Jobs
+                %li
+                  = link_to '' do
+                    Warszawa Jobs
+                %li
+                  = link_to '' do
+                    Kraków Jobs
+                %li
+                  = link_to '' do
+                    Wroclaw Jobs
+                %li
+                  = link_to '' do
+                    Outside Poland
+
+            .col-md-6
+              %ul{class: 'list-unstyled'}
+                %li
+                  = link_to '' do
+                    Poznan Jobs
+                %li
+                  = link_to '' do
+                    Lublin Jobs
+                %li
+                  = link_to '' do
+                    Toruń Jobs
+                %li
+                  = link_to '' do
+                    Bialystok Jobs
+
+
+        %hr
+        .row{id: 'copyright'}
+          .col-md-12{class: 'text-center'}
+            %h4
+              &copy #{Date.today.year} <span class='bold'>Ruby on Rails Job Board</span>. All rights reserverd
+            %p
+              Crafted by <span class='bold'>Renato Franco</span>

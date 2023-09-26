@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  before_action :ransack_search
+  
+  private
 
-  def ransack_search()  
-  end
+    def original_path
+      request.referrer || root_path
+    end
+
+    def ransack_search_for(model, params)
+      @q = model.send(:ransack, params[:q])
+    end
 end

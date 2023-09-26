@@ -7,7 +7,27 @@
     .row
       .col-md-12
 
+        .row{id: 'block'}
+          .col-md-12{class: 'text-center'}
+            %h1{class: 'bold title'}
+              Hire a Rails Developer, Fast.
+            %p Get your job posting seen by thousands of Ruby on Rails job seekers.
+            %p 30 days for free.
+        %br
+
         .col-md-8.col-md-offset-2
           .panel.panel-default
             .panel-body
-              = render 'form', job: @job
+              #heading
+                %h4{class: 'bold'} Job details
+                %p Provide a job description and details.
+                %hr
+
+              #job
+                = render 'form', job: @job
+
+          %br
+          .panel.panel-default
+            .panel-body
+              %h4{class: 'bold'} Job post
+              %p Confirm and submit the job posting.

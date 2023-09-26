@@ -3,29 +3,80 @@
     .container.container-fluid
       / Brand and toggle get grouped for better mobile display
       .navbar-header
-        %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %button.navbar-toggle.collapsed{"aria-expanded" => "false", 
+        "data-target" => "#bs-example-navbar-collapse-1", 
+        "data-toggle" => "collapse", :type => "button"}
           %span.sr-only Toggle navigation
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand{:href => "#", class: 'bold'} 
+        %a.navbar-brand{:href => root_path, class: 'bold'} 
           <span class='white-bg'>Ruby on</span>
           <span class='red-bg'>Poland</span>
       / Collect the nav links, forms, and other content for toggling
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         %ul.nav.navbar-nav
           %li
+            = link_to '#' do
+              %i{class: 'fa-solid fa-satellite-dish ico'}
+              Radar
+          %li
+            = link_to 'https://www.meetup.com/pl-PL/',
+            target: :_blank do
+              %i{class: 'fa-brands fa-meetup ico'}
+              Meetups
+          %li
+            = link_to 'https://forum.rubyonrails.pl/',
+            target: :_blank do
+              %i{class: 'fa-regular fa-comments ico'}
+              Forum
+          %li
             = link_to jobs_path do
+              %i{class: 'fa-solid fa-briefcase ico'}
               Jobs
 
         %ul.nav.navbar-nav.navbar-right
+          - if !current_user
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", 
+              "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Companies
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to new_user_session_path do
+                    Sign In
+                %li
+                  = link_to new_user_registration_path do
+                    Sign Up
+          - else
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", 
+              "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                = image_tag(current_user.avatar, class: 'logo')
+                #{current_user.name}
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to jobs_path(q: { user_name_eq: current_user.name }) do
+                    %i{class: 'fa-solid fa-briefcase'}
+                    My Jobs
+                %li
+                  = link_to edit_registration_path(current_user) do
+                    %i{class: 'fa-regular fa-circle-user'}
+                    Account
+                %li
+                  = link_to destroy_user_session_path,
+                    method: :delete do
+                    %i{class: 'fa-solid fa-power-off'}
+                    Log Out
+
+
           %li
-            = link_to '#partners' do
+            = link_to root_path do
               Partners
           %li
             = link_to '#discord',
-            class: 'btn btn-primary btn-md btn-rop' do
-              %i{class: 'fa-brands fa-discord'}
+            class: 'btn btn-primary btn-md btn-rop discord' do
+              %i{class: 'fa-brands fa-discord ico'}
               Join our Discord
-      / /.navbar-collapse
-    / /.container-fluid

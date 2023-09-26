@@ -1,27 +1,76 @@
-= provide :title, ''
+= provide :title, 'Jobs'
 = provide :description, ''
 = provide :title, ''
 
 %section{id: 'content'}
   .container
     .row
-      .col-md-12
+      .col-md-10.col-md-offset-1
 
         .row
           .col-md-12
-            .panel.panel-default
+            .panel.panel-default{id: 'newsletter'}
               .panel-body
-                = link_to '',
-                class: 'btn btn-primary btn-lg top' do
-                  Post a Job
+                .col-md-6
+                  %h3{class: 'title bold'} Ruby on Rails Jobs
+                  %p{class: 'subtitle'} Get the best of Ruby on Rails Jobs delivered to your inbox.
+
+                .col-md-4{style: 'padding-top: 20px;'}
+                  = form_for(@newsletter, html: { class: 'form-inline'}) do |f|
+                    .form-group
+                      = f.email_field :email, class: 'form-control', 
+                      placeholder: 'you@email.com', style: 'height: 44px; width: 165px;'
+                    = f.submit 'Subscribe', class: 'btn btn-primary btn-rop'
+
+                .col-md-2{style: 'padding-top: 20px;'}
+                  = link_to new_job_path,
+                  class: 'btn btn-primary btn-lg top btn-rop pull-right' do
+                    %i{class: 'fa-solid fa-briefcase ico'}
+                    Post a Job
 
         .row
-          .col-md-12
-            = render @jobs
+          .col-md-3
+            .row
+              .col-md-12
+                .panel.panel-default
+                  .panel-body
+                    = search_form_for(@q) do |f|
 
-          .col-md-12
-            = paginate @jobs
+                      .field
+                        = f.label :title, 'Search'
+                        = f.text_field :title_cont, class: 'form-control',
+                        placeholder: 'Title, Company, etc.'
+                      .field
+                        = f.label :job_kind_id, 'Type'
+                        = f.collection_select(:job_kind_id_eq, JobKind.order(:name), :id, :name,
+                        { include_blank: 'Select'}, { class: 'form-control' })
+                      .field
+                        = f.label :citi_id, 'Location'
+                        = f.collection_select(:city_id_eq, City.all, :id, :name, 
+                        { include_blank: 'Select'}, { class: 'form-control' })
+                      .field
+                        = f.label :remote, 'Remote', style: 'margin-top: 10px;'
+                        %br
 
-          - if @jobs.empty?
-            %p{class: 'well text-center'}
-              Sorry, no jobs found.
+                        %label{class: 'slidable-checkbox'}
+                          = f.check_box :remote_eq
+                          %span{class: 'slider'}
+                      
+                      %br
+                      .field
+                        = f.submit 'Filter Jobs',
+                        class: 'btn btn-primary btn-lg btn-rop full-width'
+
+          .col-md-9
+            .row
+              .col-md-12
+                = render @jobs
+
+              .col-md-12
+                .text-center
+                  = paginate @jobs
+
+              - if @jobs.empty?
+                .col-md-12
+                  %p{class: 'well text-center'}
+                    Sorry, no jobs found.

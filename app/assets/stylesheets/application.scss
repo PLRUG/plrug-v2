@@ -31,9 +31,34 @@ header
     position: relative;
     background-color: #EEE;
     padding-top: 15px;
-    padding-bottom: 0px;
+    padding-bottom: 15px;
     border-radius: 0px;
     border: 0px;
+
+    .discord
+    {
+      position: relative;
+      transition: 0.5s;
+
+      &:hover, &.over
+      {
+        position: relative;
+        color: #FFF !important;
+        background-color: red !important;
+        transition: 0.5s;
+      } 
+    }
+
+    .logo
+    {
+      position: relative;
+      margin-top: -4px;
+      margin-right: 2px;
+      background-color: #EEE;
+      width: 22px;
+      height: 22px;
+      border-radius: 18px;
+    }
 
     .red-bg
     {
@@ -122,4 +147,16 @@ footer
     color: #FFF;
     padding: 5px;
   }
+}
+
+.full-width
+{
+  position: relative;
+  width: 100%;
+}
+
+.ico
+{
+  position: relative;
+  margin-right: 4px;
 }
