@@ -21,7 +21,7 @@
               %i{class: 'fa-solid fa-satellite-dish ico'}
               Radar
           %li
-            = link_to 'https://www.meetup.com/pl-PL/',
+            = link_to 'https://www.meetup.com/topics/ruby/pl/',
             target: :_blank do
               %i{class: 'fa-brands fa-meetup ico'}
               Meetups
@@ -53,22 +53,26 @@
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", 
               "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                = image_tag(current_user.avatar, class: 'logo')
+                = image_tag(current_user.default_avatar, class: 'logo')
                 #{current_user.name}
                 %span.caret
               %ul.dropdown-menu
                 %li
                   = link_to jobs_path(q: { user_name_eq: current_user.name }) do
-                    %i{class: 'fa-solid fa-briefcase'}
+                    %i{class: 'fa-solid fa-briefcase ico'}
                     My Jobs
                 %li
+                  = link_to refer_path do
+                    %i{class: 'fa-solid fa-link ico'}
+                    Refer
+                %li
                   = link_to edit_registration_path(current_user) do
-                    %i{class: 'fa-regular fa-circle-user'}
+                    %i{class: 'fa-regular fa-circle-user ico'}
                     Account
                 %li
                   = link_to destroy_user_session_path,
                     method: :delete do
-                    %i{class: 'fa-solid fa-power-off'}
+                    %i{class: 'fa-solid fa-power-off ico'}
                     Log Out
 
 

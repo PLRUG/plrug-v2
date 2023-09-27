@@ -10,7 +10,6 @@ gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 gem "importmap-rails"
 gem "jbuilder"
-gem "redis", "~> 4.0"
 gem 'connection_pool'
 gem 'jquery-rails'
 gem 'bootstrap3-rails'
@@ -19,6 +18,8 @@ gem 'kaminari-bootstrap3'
 gem 'devise'
 gem 'interactor'
 gem 'haml'
+gem 'redis'
+gem 'redis-rails'
 gem 'sassc'
 gem 'friendly_id'
 gem 'simple_form'

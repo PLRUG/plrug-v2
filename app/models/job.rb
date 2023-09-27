@@ -9,6 +9,8 @@
 #  max_amount      :float
 #  min_amount      :float
 #  remote          :boolean          default(FALSE)
+#  renew_counter   :integer          default(0)
+#  status          :integer
 #  title           :string
 #  views           :integer          default(0)
 #  visits          :integer          default(0)
@@ -29,6 +31,14 @@
 #  user_id  (user_id => users.id)
 #
 class Job < ApplicationRecord
+
+  # Scope
+  scope :lasts,    -> { order(created_at: :desc) }
+  scope :active,   -> { where(status: :active) }
+  scope :exprited, -> { where(status: :expired) }
+
+  # Enum
+  enum :status, %w(active expired)
   
   # Relationships
   belongs_to :billing_type

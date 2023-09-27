@@ -1,0 +1,79 @@
+.refers
+{
+  position: relative;
+
+  .mtop
+  {
+    position: relative;
+    margin-top: 15px;
+  }
+
+  #code
+  {
+    position: relative;
+    background-color: #EEE;
+    margin-right: 10px;
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .active
+  {
+    a {
+      position: relative;
+      background-color: transparent !important;
+      color: #000 !important;
+      border-bottom: 2px solid red !important;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
+
+  .progress
+  {
+    position: relative;
+    margin-bottom: 25px;
+    margin-top: 5px;
+
+    .progress-bar
+    {
+      position: relative;
+      background-color: red;
+    }
+  }
+
+  .analytics
+  {
+    position: relative;
+
+    h2
+    {
+      position: relative;
+      margin-top: -8px;
+    }
+
+    p
+    {
+      position: relative;
+      font-size: 12px;
+    }
+
+    .signup
+    {
+      position: relative;
+      color: rgba(59,130,246,.5);
+    }
+
+    .completed
+    {
+      position: relative;
+      color: rgb(102, 219, 161);
+    }
+
+    .hired
+    {
+      position: relative;
+      color: #000;
+    }
+  }
+}

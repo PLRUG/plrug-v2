@@ -41,6 +41,48 @@
               = link_to '#contact', class: 'btn btn-primary btn-lg btn-rop' do
                 Become a partner
 
+#features
+  .container
+    .row
+      .col-md-12
+
+        .row
+          .col-md-6{class: 'text-center'}
+            .jumbotron
+              %h2{class: 'bold'}
+                For Developers
+              %p create our developer account.
+              = link_to '#', 
+              class: 'btn btn-primary btn-lg btn-rop top' do
+                Coming Soon
+          .col-md-6{class: 'text-center'}
+            .jumbotron
+              %h2{class: 'bold'}
+                For Companies
+              %p create our company account.
+              = link_to new_user_registration_path, 
+              class: 'btn btn-primary btn-lg btn-rop top' do
+                Create an Account
+#groups
+  .container
+    .row
+      .col-md-12
+
+        .row
+          .col-md-5
+            .cta
+              %i{class: 'fa-brands fa-meetup ico pull-left'}
+              %h1{class: 'bold'} Groups
+              %p Meeting other local Ruby Programmers, make <br>new friends discuss new ideas and technologies, improve ur skills.
+          .col-md-7
+            - Group.all.each do |group|
+              .col-md-3
+                = link_to group.url, class: 'no-decoration' do
+                  .panel.panel-default
+                    .panel-body
+                      = image_tag('default.jpg', class: 'avatar pull-left')
+                      %h6{class: 'bold'}= truncate(group.name, length: 15)
+
 #contact
   .container
     .row

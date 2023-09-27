@@ -2,7 +2,7 @@
 
 class JobsController < ApplicationController
   before_action -> { ransack_search_for(Job, params) }
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, only: [:show, :edit, :update, :destroy, :expire, :renew]
 
   layout 'jobs'
 
@@ -52,6 +52,18 @@ class JobsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path, notice: 'Job removed'
+  end
+
+  # POST /jobs/:id/expire
+  def expire
+    @job.update(status: 'expired')
+    redirect_to job_path(@job), notice: 'Job expired with success.'
+  end
+
+  # POST /jobs/:id/renew
+  def renew
+    @job.update(status: 'active')
+    redirect_to job_path(@job), notice: 'Job actived with success.'
   end
 
   private

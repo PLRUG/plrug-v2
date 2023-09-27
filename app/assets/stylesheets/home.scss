@@ -40,15 +40,57 @@
   #partners
   {
     position: relative;
-    border: 1px solid #EEE;
+    background-color: #CCC;
+    border: 1px solid #CCC;
     padding-top: 30px;
     padding-bottom: 60px;
+
+    h1
+    {
+      position: relative;
+    }
 
     .partner
     {
       position: relative;
       border: 1px solid #EEE;
       background-color: #EEE;
+    }
+  }
+
+  #features
+  {
+    position: relative;
+    background-color: #FFF;
+    border: 1px solid #EEE;
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+  }
+
+  #groups
+  {
+    position: relative;
+    background-color: #EEE;
+    border: 1px solid #EEE;
+    padding-top: 50px;
+    padding-bottom: 40px;
+
+    .cta
+    {
+      .ico
+      {
+        font-size: 65px;
+        margin-right: 20px;
+        margin-top: 60px;
+      }
+    }
+    
+    .avatar
+    {
+      position: relative;
+      width: 24px;
+      height: 24px;
     }
   }
 

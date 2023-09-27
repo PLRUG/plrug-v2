@@ -7,6 +7,7 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  name                   :string
+#  referral_link          :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -20,7 +21,6 @@
 #
 class User < ApplicationRecord
 
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -29,8 +29,18 @@ class User < ApplicationRecord
   # Relationships
   has_many :jobs
 
-  # TODO: add this column to databse
-  def avatar
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe3C5x8XUYNOFOMqVmgM0DXOxkYWWoEFSs3sjI_cy2PA&s"
+  # Callbacks
+  # before_save :create_refferal_link, if: :valid?
+
+  # Methods
+  def default_avatar
+    avatar || 'default.jpg'
+  end
+
+  # Method
+  def create_refferal_link
+    username = "#{name.downcase.split[0]}"
+    based_token = "#{username}_#{SecureRandom.urlsafe_base64(6)}"
+    self.referral_link = "app.onrop.pl/r/#{based_token}"
   end
 end

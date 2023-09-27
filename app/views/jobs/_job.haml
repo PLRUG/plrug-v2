@@ -3,7 +3,7 @@
     .panel.panel-default
       .panel-body
         .col-md-2
-          = image_tag(job.user.avatar, class: 'logo')
+          = image_tag(job.user.default_avatar, class: 'logo')
         .col-md-10
           %p{class: 'kind'} Part time
           %h4{class: 'title bold'}= job.title
