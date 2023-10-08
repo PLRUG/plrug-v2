@@ -1,0 +1,17 @@
+name: Policy Branch Name
+on:
+  pull_request:
+    branches: [staging]
+    types: [opened, synchronize]
+jobs:
+  check_prefix:
+    name: Runner Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: deepakputhraya/action-branch-name@master
+        with:
+          regexp: '([a-z])+\/'
+          allowed_prefixes: 'master,staging,feature/,bugfix/,hotfix/,bug/,fix/,topic/,dependabot'
+          ignore: 'false'
+          min_length: 5
+          max_length: 200
