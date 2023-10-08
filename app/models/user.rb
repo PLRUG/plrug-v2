@@ -37,7 +37,7 @@ class User < ApplicationRecord
   friendly_id :username, use: [:slugged]
 
   # Enum
-  enum kind: %i[user company]
+  enum kind: %i[user company startup]
 
   # Callbacks
   after_create :generate_referral_link

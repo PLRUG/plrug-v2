@@ -1,64 +1,66 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.3"
+ruby '2.7.3'
 
-gem "rails", "~> 7.0.8"
-gem "sqlite3", "~> 1.4"
-gem "puma", "~> 5.0"
-gem "importmap-rails"
-gem "jbuilder"
-gem 'connection_pool'
-gem 'jquery-rails'
+gem 'bootsnap', require: false
 gem 'bootstrap3-rails'
+gem 'connection_pool'
+gem 'devise'
+gem 'friendly_id'
+gem 'haml'
+gem 'image_processing', '~> 1.2'
+gem 'importmap-rails'
+gem 'interactor'
+gem 'jbuilder'
+gem 'jquery-rails'
 gem 'kaminari'
 gem 'kaminari-bootstrap3'
-gem 'devise'
-gem 'interactor'
-gem 'social-share-button'
-gem 'haml'
-gem 'redis'
-gem 'sassc'
-gem 'friendly_id'
-gem 'simple_form'
+gem 'puma', '~> 5.0'
+gem 'pundit'
+gem 'rails', '~> 7.0.8'
 gem 'ransack', '~> 3.2.1'
+gem 'redis'
+gem 'rolify'
+gem 'sassc'
+gem 'simple_form'
+gem 'social-share-button'
 gem 'sprockets-rails'
+gem 'sqlite3', '~> 1.4'
+gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'view_component'
-gem "image_processing", "~> 1.2"
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-gem "bootsnap", require: false
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
-  gem "web-console"
-  gem "overcommit"
-  gem "fasterer"
-  gem "rubycritic"
-  gem 'awesome_print'
-  gem 'pry-rails'
-  gem 'flog'
-  gem 'bullet'
-  gem 'brakeman'
-  gem 'rubocop'
-  gem 'dotenv-rails'
-  gem 'rubocop-rspec'
-  gem 'pry-byebug'
-  gem 'rails-erd'
-  gem 'better_errors'
-  gem 'factory_bot_rails'
-  gem 'rspec-rails'
-  gem 'shoulda'
-  gem 'ffaker'
   gem 'annotate'
+  gem 'awesome_print'
+  gem 'better_errors'
+  gem 'brakeman'
+  gem 'bullet'
+  gem 'dotenv-rails'
+  gem 'factory_bot_rails'
+  gem 'fasterer'
+  gem 'ffaker'
+  gem 'flog'
+  gem 'overcommit'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'rails-erd'
+  gem 'rspec-rails'
+  gem 'rubocop'
+  gem 'rubocop-rspec'
+  gem 'rubycritic'
+  gem 'shoulda'
+  gem 'web-console'
 end
 
 group :test do
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
