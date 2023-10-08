@@ -175,7 +175,7 @@ realtime = Benchmark.realtime do
       country: country 
      },
      {
-      id: 19
+      id: 19,
       name: 'Opole',
       country: country
      },
