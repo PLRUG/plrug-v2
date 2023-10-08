@@ -1,0 +1,25 @@
+= link_to content_job_path(job), class: 'no-decoration' do
+  .job
+    .panel.panel-default
+      .panel-body
+        .col-md-2
+          = image_tag(job.user.default_avatar, class: 'logo')
+        .col-md-10
+          %p{class: 'kind'} Part time
+          %h4{class: 'title bold'}= job.title
+          %p{class: 'company' } #{job.user.name}
+
+          %ul{class: 'list-unstyled details'}
+            %li{class: 'modality'}
+              %i{class: 'fa-solid fa-location-dot'}
+              #{job.job_kind.name}
+            %li{class: 'location'}
+              %i{class: 'fa-solid fa-earth-europe'}
+              #{job.city.name}
+            %li{class: 'bills'}
+              %i{class: 'fa-solid fa-money-check-dollar'}
+              #{job.min_amount} - #{job.max_amount} | #{job.billing_type.name}
+
+          %p{class: 'days-left'}
+            %i{class: 'fa-solid fa-clock'}
+            = time_ago_in_words(job.created_at)

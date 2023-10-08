@@ -1,0 +1,64 @@
+%footer{style: 'margin-top: 50px;'}
+  .container
+    .row
+      .col-md-8.col-md-offset-2
+        .row
+          .col-md-5
+            %h4{class: 'bold'} Ruby on Rails Job Board
+            %ul{class: 'list-unstyled'}
+              %li
+                = link_to company_terms_path do
+                  Terms of Service
+              %li
+                = link_to company_privacy_path do
+                  Privacy Policy
+              %li
+                = link_to company_contact_path do
+                  Contact
+
+          .col-md-7
+            .col-md-12
+              %h4{class: 'bold'} Jobs
+
+            %br
+            .col-md-6
+              %ul{class: 'list-unstyled'}
+                %li
+                  = link_to '' do
+                    All Jobs
+                %li
+                  = link_to content_jobs_path(q: {city_name_eq: 'Warszawa'}) do
+                    Warszawa Jobs
+                %li
+                  = link_to content_jobs_path(q: {city_name_eq: 'Kraków'}) do
+                    Kraków Jobs
+                %li
+                  = link_to content_jobs_path(q: {city_name_eq: 'Wroclaw'}) do
+                    Wroclaw Jobs
+                %li
+                  = link_to content_jobs_path do
+                    Outside Poland
+
+            .col-md-6
+              %ul{class: 'list-unstyled'}
+                %li
+                  = link_to content_jobs_path(q: {city_name_eq: 'Poznan'}) do
+                    Poznan Jobs
+                %li
+                  = link_to content_jobs_path(q: {city_name_eq: 'Lublin'}) do
+                    Lublin Jobs
+                %li
+                  = link_to content_jobs_path(q: {city_name_eq: 'Toruń'}) do
+                    Toruń Jobs
+                %li
+                  = link_to content_jobs_path(q: {city_name_eq: 'Bialystok'}) do
+                    Bialystok Jobs
+
+
+        %hr
+        .row{id: 'copyright'}
+          .col-md-12{class: 'text-center'}
+            %h4
+              &copy #{Date.today.year} <span class='bold'>Ruby on Rails Job Board</span>. All rights reserved
+            %p
+              Crafted by <span class='bold'>Renato Franco</span>

@@ -1,0 +1,57 @@
+= provide :title, 'Blog'
+= provide :description, ''
+= provide :keywords, ''
+
+
+%section{id: 'hero'}
+  .container
+    .row
+      .col-md-12
+        .row
+          .col-md-6{id: 'brand'}
+            %h5{class: 'bold uppercase colored'}
+              %i{class: 'fa-solid fa-newspaper ico'}
+              Blog
+            %h1{class: 'title'} Want know more about <br>Ruby on Rails and <br>their development<br />ecossistem?
+            %p{class: 'subtitle'} Read ur news, stain  in touch and<br> updated with Rails world.
+
+          .col-md-3.col-md-offset-2
+            .panel.panel-default{id: 'search-block'}
+              .panel-body
+                %h4{class: 'bold'}
+                  Search Contents
+
+                = search_form_for(@q, { url: content_posts_path }) do |f|
+                  .field
+                    .input-group
+                      = f.text_field :title_cont, class: 'form-control',
+                      placeholder: 'Subject or category'
+                      .input-group-addon
+                        %i{class: 'fa-solid fa-search'}
+
+%section{id: 'tags'}
+  .container
+    .row
+      .col-md-12
+        %h3{class: 'bold text-center'} Categories
+        %br
+
+        .row
+          - tags.each do |category|
+            = link_to content_posts_path(q: { title_cont: category }) do
+              .col-md-2
+                .panel.panel-default{class: 'tags'}
+                  .panel-body{class: 'text-center'}
+                    %p= category
+
+%section{id: 'content'}
+  .container
+    .row
+      .col-md-12  
+        .row
+          = render @posts
+
+          .row
+            .col-md-12
+              .text-center
+                = paginate(@posts)

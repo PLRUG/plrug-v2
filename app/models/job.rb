@@ -31,15 +31,17 @@
 #  user_id  (user_id => users.id)
 #
 class Job < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: [:slugged]
 
   # Scope
   scope :lasts,    -> { order(created_at: :desc) }
   scope :active,   -> { where(status: :active) }
-  scope :exprited, -> { where(status: :expired) }
+  scope :expired,  -> { where(status: :expired) }
 
   # Enum
-  enum :status, %w(active expired)
-  
+  enum :status, %i[active expired]
+
   # Relationships
   belongs_to :billing_type
   belongs_to :city

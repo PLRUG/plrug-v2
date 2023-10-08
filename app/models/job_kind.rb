@@ -10,7 +10,7 @@
 #
 class JobKind < ApplicationRecord
   extend FriendlyId
-  friendly_id :friendly_id, use: [:slugged]
+  friendly_id :name, use: [:slugged]
 
   # Relationships
   has_many :jobs

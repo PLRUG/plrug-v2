@@ -1,0 +1,13 @@
+= provide :title, @post.title
+= provide :description, truncate(@post.body, length: 145)
+= provide :keywords, @post.tags
+
+%section{id: 'content'}
+  .container
+    .row
+      .col-md-8.col-md-offset-2
+        %h1{class: 'bold'}= @post.title
+
+    .row
+      .col-md-8.col-md-offset-2
+        = raw(@post.body)

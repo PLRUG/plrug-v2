@@ -7,17 +7,26 @@
       .col-md-12{class: 'text-center'}
         %ul{class: 'list-unstyled list-inline'}
           %li
-            = link_to 'https://github.com/' do
+            = link_to ENV.fetch('GITHUB_URL') do
               %i{class: 'fa-brands fa-github'}
           %li
-            = link_to 'https://youtube.com/' do
+            = link_to ENV.fetch('YOUTUBE_URL') do
               %i{class: 'fa-brands fa-youtube'}
           %li
-            = link_to 'https://facebook.com/' do
+            = link_to ENV.fetch('FACEBOOK_URL') do
               %i{class: 'fa-brands fa-facebook'}
           %li
-            = link_to 'https://instagram.com/' do
+            = link_to ENV.fetch('INSTAGRAM_URL') do
               %i{class: 'fa-brands fa-instagram'}
           %li
-            = link_to 'https://discord.com/' do
+            = link_to ENV.fetch('TWITTER_URL') do
+              %i{class: 'fa-brands fa-twitter'}
+          %li
+            = link_to ENV.fetch('LINKEDIN_URL') do
+              %i{class: 'fa-brands fa-linkedin'}
+          %li
+            = link_to ENV.fetch('TELEGRAM_URL') do
+              %i{class: 'fa-brands fa-telegram'}
+          %li
+            = link_to ENV.fetch('DISCORD_URL') do
               %i{class: 'fa-brands fa-discord'}

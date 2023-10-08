@@ -1,0 +1,113 @@
+= provide :title, @job.title
+= provide :description, ''
+= provide :keywords, ''
+
+%section{id: 'content'}
+  .container
+    .row
+      .col-md-12
+
+        .col-md-9
+          .row
+
+          - if true
+            .col-md-12{id: 'analytics'}
+              .row
+                .col-md-3
+                  .panel.panel-default{class: 'block'}
+                    .panel-body{style: 'padding-top: 17px; padding-bottom: 17px;'}
+                      %i{class: 'fa-solid fa-user-group pull-left'}
+                      %h5 Visits
+                      %h3{class: 'bold counter'}= @job.visits
+
+                .col-md-3
+                  .panel.panel-default{class: 'block'}
+                    .panel-body{style: 'padding-top: 17px; padding-bottom: 17px;'}
+                      %i{class: 'fa-solid fa-eye pull-left'}
+                      %h5 Views
+                      %h3{class: 'bold counter'}= @job.views
+                      
+                .col-md-3
+                  .panel.panel-default{class: 'block'}
+                    .panel-body{style: 'padding-top: 17px; padding-bottom: 17px;'}
+                      %i{class: 'fa-solid fa-arrow-pointer pull-left'}
+                      %h5 Clicks
+                      %h3{class: 'bold', id: 'counter'}= @job.clicks
+
+                .col-md-3
+                  .panel.panel-default
+                    .panel-body
+                      = link_to edit_content_job_path(@job),
+                      class: 'btn btn-default btn-md full-width' do
+                        %i{class: 'fa-solid fa-pen-to-square'}
+                        Edit
+                      = link_to content_job_path(@job), method: :delete,
+                      data: { confirm: 'Are you sure?' }, 
+                      class: 'btn btn-danger btn-md full-width',
+                      style: 'margin-top: 5px;' do
+                        %i{class: 'fa-solid fa-trash'}
+                        Remove
+
+          %br
+          .row
+            .col-md-12
+              .job
+                .col-md-12
+                  .panel.panel-default
+                    .panel-body
+                      .col-md-2
+                        = image_tag(@job.user.default_avatar, class: 'logo')
+                      .col-md-10
+                        %p{class: 'kind'} Part time
+                        %p{class: 'kind', style: 'margin-right: 5px;' }= @job.status
+                        %h4{class: 'title bold'}= @job.title
+                        %p{class: 'company', style: 'color: red; font-weight: bold;'} 
+                          #{@job.user.name}
+
+                        %ul{class: 'list-unstyled details'}
+                          %li{class: 'type'}
+                            %i{class: 'fa-solid fa-briefcase'}
+                            #{@job.job_kind&.name}
+                          %li{class: 'modality'}
+                            %i{class: 'fa-solid fa-location-dot'}
+                            #{@job.remote? ? 'Remote' : 'Office'}
+                          %li{class: 'location'}
+                            %i{class: 'fa-solid fa-earth-europe'}
+                            #{@job.city&.name}
+                          %li{class: 'bills'}
+                            %i{class: 'fa-solid fa-money-check-dollar'}
+                            #{@job.min_amount} / #{@job.max_amount} / 
+                            #{@job.currency&.name} / 
+
+          .row
+            .col-md-12
+              .col-md-12
+                .panel.panel-default
+                  .panel-body
+                    = raw(@job.description)
+
+          .row
+            .col-md-12
+              .col-md-12
+                .panel.panel-default
+                  .panel-body{class: 'text-center'}
+                    - if @job.status.eql?('active')
+                      = link_to expire_content_job_path(@job), method: :post,
+                      class: 'btn btn-primary btn-rop' do
+                        Expire job
+                    - else
+                      = link_to renew_content_job_path(@job), method: :post,
+                      class: 'btn btn-primary btn-rop' do
+                        Renew job
+        .col-md-3
+          .panel.panel-default
+            .panel-body
+              = link_to @job.apply_path,
+              class: 'btn btn-primary btn-lg btn-rop full-width' do
+                Apply now
+              %br
+
+              %br
+              .social{class: 'text-center'}
+                %h5 Share this job:
+                = social_share_button_tag(@job.title, url: content_job_url(@job))

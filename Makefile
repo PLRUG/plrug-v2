@@ -1,5 +1,5 @@
-APP 		  		= rails-on-poland
-DCMP 		  		= docker-compose
+APP 		  = rails-on-poland
+DCMP 		  = docker-compose
 TEST_CONFIG   = ${DCMP} -f docker-compose.yml
 DCMP_EXEC_APP = ${TEST_CONFIG} exec ${APP}
 DCMP_RUN_APP  = ${TEST_CONFIG} run ${APP}
@@ -145,6 +145,10 @@ bullet:
 # [✓]
 brakeman:
 	${BUNDLE} brakeman .
+
+# [✓]
+erd:
+	${RAILS} erd .
 
 # [✓]
 flog:

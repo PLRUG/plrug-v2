@@ -1,0 +1,98 @@
+= provide :title, 'Paths'
+= provide :description, ''
+= provide :keywords, ''
+
+%section{id: 'content'}
+  .container
+    .row
+      .col-md-12{id: 'heading'}
+        %h1{class: 'bold text-center title'} Learn <span class='bold ruby'>Ruby on Rails</span> Path
+        %p{class: 'text-center subtitle'} Become a Ruby on Rails developer in record time.
+        %br
+
+    .row
+      .col-md-12
+
+        .row
+          .col-md-12
+
+          - (1..2).each do |path|
+            .row
+              .col-md-3
+                .row
+                  .col-md-12
+                    .panel.panel-default
+                      .panel-body
+                        %h2{class: 'bold'} Level One
+                        %h4{class: 'color-red' } Prerequisites
+                        
+                        %br
+                        %p{class: 'description'} Let's get our foundational knowledge of Ruby, SQL and databases together in this prerequisite level.
+
+                        %br
+                        .row
+                          %ul{class: 'list-unstyled list-inline'}
+                            %li
+                              .block{class: 'text-center', style: 'margin-left: 15px;'}
+                                %h5{class: 'bold'} 2
+                                %p Series
+                            %li
+                              .block{class: 'text-center'}
+                                %h5{class: 'bold'} 8
+                                %p Hours
+
+                        %br
+                        %h5{class: 'bold uppercase'} Your teachers
+                        = image_tag('avatars/avatar.jpeg', class: 'avatar')
+
+                  / .col-md-12
+                  /   .panel.panel-default
+                  /     .panel-body
+                  /       %h2{class: 'bold'} Ready for more?
+                  /       %p{style: 'font-size: 16px;'} $19 a month to learn everything we know about programming.
+                  /       %br
+
+                  /       = link_to '',
+                  /       class: 'btn btn-primary btn-lg btn-rop full-width' do
+                  /         Sign me up!
+
+              .col-md-9
+                .panel.panel-default
+                  .panel-body{style: 'margin-bottom: -15px;'}
+                    .row
+                      .col-md-4{id: 'cover'}
+                        %h2{class: 'bold text-center'}
+                          Ruby for Beginners
+
+                      .col-md-8{style: 'padding-left: 30px;'}
+                        %h3{class: 'bold'} Ruby for Beginners
+                        %p Ruby is a dynamic, open source programming language with focus on simplicity and productivity. It is the foundation for the Ruby on Rails web framework and we'll tech you the basics so you can get started with Rails.
+
+                        %br
+                        %ul{class: 'list-unstyled list-inline'}
+                          %li
+                            Your Teachers
+                          %li
+                            = image_tag('avatars/avatar.jpeg', class: 'avatar-sm')
+                            Renato Franco
+
+                        %ul{class: 'list-unstyled list-inline'}
+                          %li
+                            %i{class: 'fa-solid fa-graduation-cap ico'}
+                            #{rand(10)} Lessons
+                          %li
+                            %i{class: 'fa-solid fa-clock ico'}
+                            5h 50m
+                          %li
+                            %i{class: 'fa-solid fa-signal ico'}
+                            Beginner
+                        %br
+
+                        = link_to '',
+                        class: 'btn btn-primary btn-lg btn-rop' do
+                          Start Series
+                          %i{class: 'fa-solid fa-play', style: 'margin-left: 5px;'}
+                
+                  
+
+

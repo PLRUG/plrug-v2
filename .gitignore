@@ -17,6 +17,14 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore files
+.byebug_history
+
+# Ignore env file
+.env
+.env.development
+.env.docker
+
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/

@@ -1,0 +1,17 @@
+= form_for(:contact) do |f|
+  .field
+    = f.label :name, 'Name'
+    = f.text_field :name, class: 'form-control', required: 'required',
+    placeholder: 'Name', autocomplete: 'off'
+  .field
+    = f.label :email, 'E-mail'
+    = f.text_field :email, class: 'form-control', required: 'required',
+    placeholder: 'E-mail', autocomplete: 'off'
+  .field
+    = f.label :message, 'Message'
+    = f.text_area :message, class: 'form-control', required: 'required',
+    placeholder: 'Digite a mensagem', autocomplete: 'off', style: 'height: 120px;'
+  %br
+  .field
+    = f.submit 'Send Message', 
+    class: 'btn btn-primary btn-lg btn-rop full-width'

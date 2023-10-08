@@ -1,0 +1,14 @@
+.col-md-4{class: 'post'}
+  .panel.panel-default
+    .panel-heading{class: 'thumbnail'}
+    .panel-body{class: 'body'}
+      %h3{class: 'bold'}
+        = truncate(post.title, length: 30)
+      %p
+        = truncate(post.body, length: 145)
+      %br
+
+      = link_to content_post_path(post),
+        class: 'btn btn-primary btn-lg btn-rop' do
+        %i{class: 'fa-solid fa-arrow-right ico'}
+        Read more

@@ -1,14 +1,17 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %title Ruby on Poland | #{ yield :title }
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_importmap_tags
-    %script{:crossorigin => "anonymous", :src => "https://kit.fontawesome.com/5165849ba2.js"}
+    %script{:crossorigin => "anonymous", src: 'https://kit.fontawesome.com/5165849ba2.js'}
+    = render partial: 'application/addons/cookie_yes'
+    = render partial: 'application/addons/crisp_chat'
   %body{:class => "#{controller.controller_name}"}
     = render partial: 'layouts/header'
     = yield

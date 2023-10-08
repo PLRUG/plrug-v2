@@ -6,13 +6,14 @@
     margin-top: -23px;
     padding-top: 130px;
     padding-bottom: 130px;
-    background-color: #EEE;
+    background-color: #000;
+    color: #FFF;
 
     .black
     {
       position: relative;
       text-transform: uppercase;
-      color: #000;
+      color: #FFF;
     }
 
     .title
@@ -35,6 +36,12 @@
       position: relative;
       margin-top: 20px;
     }
+
+    .discord, .email
+    {
+      position: relative;
+      width: 135px;
+    }
   }
 
   #partners
@@ -48,12 +55,14 @@
     h1
     {
       position: relative;
+      text-transform: uppercase;
+      color: #FFF;
     }
 
     .partner
     {
       position: relative;
-      border: 1px solid #EEE;
+      border: 1px solid #FFF;
       background-color: #EEE;
     }
   }
@@ -66,31 +75,67 @@
     padding-top: 50px;
     padding-bottom: 20px;
 
+    .block-bg
+    {
+      position: relative;
+      background-color: #EEE;
+      color: #000;
+
+      h2
+      {
+        position: relative;
+        font-weight: bold;
+        color: #000;
+      }
+
+      a
+      {
+        position: relative;
+        background-color: red;
+        border: 2px solid red;
+        color: #FFF;
+      }
+    }
+
   }
 
   #groups
   {
     position: relative;
-    background-color: #EEE;
-    border: 1px solid #EEE;
+    color: #FFF;
+    background-color: red;
+    border: 1px solid red;
     padding-top: 50px;
     padding-bottom: 40px;
 
     .cta
     {
+      .title
+      {
+        position: relative;
+        margin-top: 60px;
+      }
+
       .ico
       {
-        font-size: 65px;
-        margin-right: 20px;
-        margin-top: 60px;
+        font-size: 70px;
+        margin-right: 30px;
+        margin-top: 30px;
       }
     }
     
     .avatar
     {
       position: relative;
+      margin-top: 3px;
+      margin-right: 5px;
       width: 24px;
       height: 24px;
+    }
+
+    .group
+    {
+
     }
   }
 

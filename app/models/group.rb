@@ -15,4 +15,5 @@ class Group < ApplicationRecord
 
   # Validations
   validates :name, presence: true, uniqueness: false, allow_blank: false
+  validates :url, presence: true, uniqueness: false, allow_blank: false
 end
