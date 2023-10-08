@@ -25,6 +25,9 @@
 .env.development
 .env.docker
 
+# Ignore idea files
+.idea
+
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/

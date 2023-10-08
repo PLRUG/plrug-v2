@@ -1,5 +1,5 @@
 # Dockerfile
-FROM ruby:3.2.0
+FROM ruby:2.7.3
 
 LABEL maintainer="devops@rop.app"
 
@@ -18,7 +18,7 @@ RUN apt-get update -qq && \
     apt-get install -y nodejs sqlite3 libsqlite3-dev
 
 # Change TimeZone
-ENV TZ=America/Sao_Paulo
+ENV TZ=Europe/Warsaw
 
 # Copy application into container
 COPY . $API_HOME/
