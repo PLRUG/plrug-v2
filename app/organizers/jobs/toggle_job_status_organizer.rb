@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Jobs
-  class ExpireRenewJobOrganizer
+  class ToggleJobStatusOrganizer
     include Interactor::Organizer
 
-    organize FindJob, ExpireRenewJob
+    organize FindJob, ToggleJobStatus
   end
 end

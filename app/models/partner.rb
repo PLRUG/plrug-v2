@@ -27,7 +27,7 @@ class Partner < ApplicationRecord
   friendly_id :name, use: [:slugged]
 
   # Kinds
-  PARTNER_KINDS = %w(company school university government other)
+  PARTNER_KINDS = %i[company school university government other]
 
   # Uploader
   has_one_attached :logo

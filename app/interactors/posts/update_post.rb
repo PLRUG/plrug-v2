@@ -15,7 +15,7 @@ module Posts
     private
 
     def update_post
-      post.update(params)
+      post.update!(params)
       post.reload
     end
   end

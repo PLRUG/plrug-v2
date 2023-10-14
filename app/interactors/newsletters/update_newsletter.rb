@@ -4,7 +4,7 @@ module Newsletters
   class UpdateNewsletter
     include Interactor
 
-    delegate :job, :params, to: :context
+    delegate :newsletter, :params, to: :context
 
     def call
       update_newsletter
@@ -15,7 +15,7 @@ module Newsletters
     private
 
     def update_newsletter
-      newsletter.update(params)
+      newsletter.update!(params)
       newsletter.reload
     end
   end

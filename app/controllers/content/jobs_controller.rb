@@ -13,7 +13,8 @@ module Content
     def index
       @newsletter = Newsletter.new
       @jobs = @q.result(distinct: true)
-                .includes(:city, :job_kind).order(created_at: :asc)
+                .includes(:city, :job_kind)
+                .order(created_at: :asc)
                 .page(params[:page])
                 .per(6)
     end
@@ -37,7 +38,7 @@ module Content
 
     # GET /jobs/:id
     def show
-      @job = Jobs::ViewJobOrganizer.call(id: @job.id, session: session).job
+      Jobs::ViewJobOrganizer.call(id: @job.id, session: session)
     end
 
     # GET /jobs/:id/edit
@@ -71,7 +72,7 @@ module Content
 
     # POST /jobs/:id/expire
     def expire
-      result = Jobs::ExpireRenewJobOrganizer.call(id: @job.id)
+      result = Jobs::ToggleJobStatusOrganizer.call(id: @job.id)
 
       if result.success?
         flash[:notice] = 'Job expired with success.'
@@ -81,7 +82,7 @@ module Content
 
     # POST /jobs/:id/renew
     def renew
-      result = Jobs::ExpireRenewJobOrganizer.call(id: @job.id)
+      result = Jobs::ToggleJobStatusOrganizer.call(id: @job.id)
 
       if result.success?
         flash[:notice] = 'Job activated with success.'
@@ -95,13 +96,14 @@ module Content
     private
 
     def set_job
-      @job = Jobs::FindJob.call(id: params[:id])
+      @job = Jobs::FindJob.call(id: params[:id]).job
     end
 
     def job_params
       params.require(:job)
             .permit(:title, :kind, :location, :apply_path, :remote,
-                    :description, :min_amount, :max_amount, :currency, :billing_type)
+                    :description, :min_amount, :max_amount, :currency, 
+                    :billing_type)
     end
   end
 end

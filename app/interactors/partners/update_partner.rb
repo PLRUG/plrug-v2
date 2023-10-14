@@ -15,7 +15,7 @@ module Partners
     private
 
     def update_partner
-      partner.update(params)
+      partner.update!(params)
       partner.reload
     end
   end

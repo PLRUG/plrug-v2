@@ -15,7 +15,7 @@ module Users
     private
 
     def update_user
-      user.update(params)
+      user.update!(params)
       user.reload
     end
   end

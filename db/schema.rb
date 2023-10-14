@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_07_235514) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_14_133338) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -78,6 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_235514) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "abbrv"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -125,6 +126,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_235514) do
     t.integer "clicks", default: 0
     t.integer "status"
     t.integer "renew_counter", default: 0
+    t.string "slug"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "address"
+    t.integer "country_id"
+    t.string "zip_code"
+    t.index ["country_id"], name: "index_jobs_on_country_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -155,6 +163,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_235514) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tags"
+    t.integer "views", default: 0
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -175,6 +184,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_235514) do
     t.string "username"
     t.integer "country_id"
     t.integer "city_id"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "address"
+    t.string "zip_code"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -184,6 +197,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_235514) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cities", "countries"
+  add_foreign_key "jobs", "countries"
   add_foreign_key "jobs", "users"
   add_foreign_key "partners", "users"
   add_foreign_key "posts", "users"

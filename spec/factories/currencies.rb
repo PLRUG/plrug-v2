@@ -3,6 +3,7 @@
 # Table name: currencies
 #
 #  id         :integer          not null, primary key
+#  abbrv      :string
 #  name       :string
 #  slug       :string
 #  created_at :datetime         not null

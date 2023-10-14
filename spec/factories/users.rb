@@ -3,11 +3,14 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  address                :string
 #  admin                  :boolean          default(FALSE)
 #  avatar                 :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  kind                   :integer          default("user")
+#  latitude               :decimal(, )
+#  longitude              :decimal(, )
 #  name                   :string
 #  referral_link          :string
 #  remember_created_at    :datetime
@@ -15,6 +18,7 @@
 #  reset_password_token   :string
 #  slug                   :string
 #  username               :string
+#  zip_code               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  city_id                :integer
@@ -43,13 +47,15 @@ FactoryBot.define do
     email { FFaker::Internet.email }
     password { '!Test123' }
     password_confirmation { '!Test123' }
+    address { FFaker::AddressPL.street_address }
+    zip_code { FFaker::AddressPL.zip_code }
     admin { false }
 
     # Admin
     trait :admin do
       name { 'Renato Franco' }
-      email { 'renato@rop.pl' }
-      password { 'rubyHero23'}
+      email { 'renato@plrug.pl' }
+      password { 'rubyHero23' }
       password_confirmation { 'rubyHero23' }
       admin { true }
     end
@@ -61,6 +67,7 @@ FactoryBot.define do
     # Callbacks
     after(:create) do |user, evaluator|
       FileAttachService.new(user.avatar)
+      GeolocationService.new(user).geocode_record
     end
   end
 end

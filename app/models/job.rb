@@ -3,36 +3,47 @@
 # Table name: jobs
 #
 #  id              :integer          not null, primary key
+#  address         :string
 #  apply_path      :string
 #  clicks          :integer          default(0)
 #  description     :text
+#  latitude        :decimal(, )
+#  longitude       :decimal(, )
 #  max_amount      :float
 #  min_amount      :float
 #  remote          :boolean          default(FALSE)
 #  renew_counter   :integer          default(0)
+#  slug            :string
 #  status          :integer
 #  title           :string
 #  views           :integer          default(0)
 #  visits          :integer          default(0)
+#  zip_code        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  billing_type_id :integer
 #  city_id         :integer
+#  country_id      :integer
 #  currency_id     :string
 #  job_kind_id     :integer
 #  user_id         :integer          not null
 #
 # Indexes
 #
-#  index_jobs_on_user_id  (user_id)
+#  index_jobs_on_country_id  (country_id)
+#  index_jobs_on_user_id     (user_id)
 #
 # Foreign Keys
 #
-#  user_id  (user_id => users.id)
+#  country_id  (country_id => countries.id)
+#  user_id     (user_id => users.id)
 #
 class Job < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: [:slugged]
+
+  # Callbacks
+  after_create :create_coordinates
 
   # Scope
   scope :lasts,    -> { order(created_at: :desc) }
@@ -44,6 +55,7 @@ class Job < ApplicationRecord
 
   # Relationships
   belongs_to :billing_type
+  belongs_to :country
   belongs_to :city
   belongs_to :currency
   belongs_to :job_kind
@@ -52,4 +64,11 @@ class Job < ApplicationRecord
   # Validations
   validates :title, presence: true
   validates :description, presence: true
+  validates :address, presence: true
+  validates :zip_code, presence: true
+
+  # Methods
+  def create_coordinates
+    GeolocationService.new(self).geocode_record
+  end
 end

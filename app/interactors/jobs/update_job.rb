@@ -15,7 +15,7 @@ module Jobs
     private
 
     def update_job
-      job.update(params)
+      job.update!(params)
       job.reload
     end
   end
