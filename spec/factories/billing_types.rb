@@ -13,9 +13,13 @@ FactoryBot.define do
 
     # Attributes
     name { 'Yearly' }
-  
+
     trait :monthly do
       name { 'Monthly' }
+    end
+
+    trait :fortnight do
+      name { 'Fortnight' }
     end
 
     trait :weekly do

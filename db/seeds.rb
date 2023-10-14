@@ -3,8 +3,8 @@
 require 'benchmark'
 require 'logger'
 
-# Customize the directory path where your seed files are located.
-seed_files_directory = File.join(Rails.root, 'db', 'seeds')
+# Directory path where your seed files are located.
+seed_files_directory = File.jsoin(Rails.root, 'db', 'seeds')
 
 # Create a logger for better log management.
 logger = Logger.new('seed_runner.log')

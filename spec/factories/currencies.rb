@@ -13,6 +13,7 @@ FactoryBot.define do
   factory :currency do
 
     # Attributes
-    name { FFaker::Currency.code }
+    name { FFaker::Currency.name }
+    abbrv { FFaker::Currency.code }
   end
 end
