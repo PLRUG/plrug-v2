@@ -1,7 +1,7 @@
 version: '3.8'
 services:
-  rubyonpoland:
-    container_name: rop-app
+  plrug-web:
+    container_name: plrug-web
     build:
       context: .
       dockerfile: Dockerfile

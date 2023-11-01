@@ -1,7 +1,7 @@
 # JobLevel
 #
-JobLevel.destroy_all
-JobLevel.create(
+Content::JobLevel.destroy_all
+Content::JobLevel.create(
   [
     { name: 'Junior' },
     { name: 'Mid Level' },

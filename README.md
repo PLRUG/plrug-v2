@@ -36,7 +36,7 @@
 Ruby on Poland is a community based project for ruby developers and intusiasths
 
 ## How To Use
-The rubyonpoland requires:
+The PLRUG requires:
 - [Ruby v2.7.3](https://ruby-lang.org/en/)
 - [Bundler v2.2.9](https://bundler.io/)
 
@@ -72,7 +72,7 @@ The names of our branches follow the pattern: *feature/story*-**story-**. See th
 ## See Also
 - [Rails Engines](https://github.com/taskrabbit/rails_engines_example#rails-engines) - Rails Engine Apps Based
 - [CBRA](https://cbra.info/) - Component-Based Rails Applications (Your Future)
-- [Wiki](https://github.com/rubyonpoland/rop-web/wiki) - Ruby on Poland project Wiki
+- [Wiki](https://github.com/PLRUG/plrug-v2/wiki) - PLRUG project Wiki
 ---
-> [rubyonpoland.pl] (https://rubyonpoland.pl) &nbsp;&middot;&nbsp;
+> [plrug.pl] (https://plrug.pl) &nbsp;&middot;&nbsp;
 > Github [@RenatoRosaFranco](https://github.com/RenatoRosaFranco)

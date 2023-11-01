@@ -1,6 +1,6 @@
 # Cities
 #
-country = Location::City.where(name: 'Poland').first
+country_id = Location::Country.find_by(name: 'Poland').id
 
 # City
 Location::City.destroy_all
@@ -9,137 +9,138 @@ Location::City.create(
     {
       id: 1,
       name: 'Warszawa',
-      country: country
+      capital: true,
+      country_id: country_id
     },
     {
       id: 2,
       name: 'Lublin',
-      country: country
+      country_id: country_id
     },
     {
       id: 3,
       name: 'Zamość',
-      country: country
+      country_id: country_id
     },
     {
       id: 4,
       name: 'Przemysl',
-      country: country
+      country_id: country_id
     },
     {
       id: 5,
       name: 'Rzeszów',
-      country: country
+      country_id: country_id
     },
     {
       id: 6,
       name: 'Kraków',
-      country: country
+      country_id: country_id
     },
     {
       id: 7,
       name: 'Kielce',
-      country: country
+      country_id: country_id
     },
     {
       id: 8,
       name: 'Radom',
-      country: country
+      country_id: country_id
     },
     {
       id: 9,
       name: 'Siedlce',
-      country: country
+      country_id: country_id
     },
     {
       id: 10,
       name: 'Bialystok',
-      country: country
+      country_id: country_id
     },
     {
       id: 11,
       name: 'Suwalki',
-      country: country
+      country_id: country_id
     },
     {
       id: 12,
       name: 'Olsztyn',
-      country: country
+      country_id: country_id
     },
     {
       id: 13,
       name: 'Elblag',
-      country: country
+      country_id: country_id
     },
     {
       id: 14,
       name: 'Torún',
-      country: country
+      country_id: country_id
     },
     {
       id: 15,
       name: 'Lódź',
-      country: country
+      country_id: country_id
     },
     {
       id: 16,
       name: 'Czestochowa',
-      country: country
+      country_id: country_id
     },
     {
       id: 17,
       name: 'Katowice',
-      country: country
+      country_id: country_id
     },
     {
       id: 18,
       name: 'Plock',
-      country: country
+      country_id: country_id
     },
     {
       id: 19,
       name: 'Opole',
-      country: country
+      country_id: country_id
     },
     {
       id: 20,
       name: 'Kalisz',
-      country: country
+      country_id: country_id
     },
     {
       id: 21,
       name: 'Poznan',
-      country: country
+      country_id: country_id
     },
     {
       id: 22,
       name: 'Koszalin',
-      country: country
+      country_id: country_id
     },
     {
       id: 23,
       name: 'Leszno',
-      country: country
+      country_id: country_id
     },
     {
       id: 24,
       name: 'Wroclaw',
-      country: country
+      country_id: country_id
     },
     {
       id: 25,
       name: 'Zielona Góra',
-      country: country
+      country_id: country_id
     },
     {
       id: 26,
       name: 'Gorzów Wielkoposki',
-      country: country
+      country_id: country_id
     },
     {
       id: 27,
       name: 'Szczecin',
-      country: country
+      country_id: country_id
     }
   ]
 )

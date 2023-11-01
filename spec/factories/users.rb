@@ -24,8 +24,8 @@
 #  zip_code               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  city_id                :integer
-#  country_id             :integer
+#  city_id                :integer          not null
+#  country_id             :integer          not null
 #
 # Indexes
 #

@@ -4,7 +4,7 @@ require 'benchmark'
 require 'logger'
 
 # Directory path where your seed files are located.
-seed_files_directory = File.jsoin(Rails.root, 'db', 'seeds')
+seed_files_directory = File.join(Rails.root, 'db', 'seeds')
 
 # Create a logger for better log management.
 logger = Logger.new('seed_runner.log')
@@ -29,7 +29,7 @@ if seed_files.empty?
 else
   logger.info('Start runninds seeds...')
 
-  seed_files.each { |seed_file| run_seed_file(seed_file) }
+  seed_files.each { |seed_file| run_seed_file(seed_file, logger) }
   
   logger.info('Finished running seeds.')
 end

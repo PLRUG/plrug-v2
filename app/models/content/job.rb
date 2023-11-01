@@ -23,10 +23,10 @@
 #  updated_at      :datetime         not null
 #  billing_type_id :integer
 #  city_id         :integer
-#  country_id      :integer
+#  country_id      :integer          not null
 #  currency_id     :string
 #  job_kind_id     :integer
-#  job_level_id    :integer
+#  job_level_id    :integer          not null
 #  user_id         :integer          not null
 #
 # Indexes

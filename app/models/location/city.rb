@@ -8,7 +8,7 @@
 #  slug       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  country_id :integer
+#  country_id :integer          not null
 #
 # Indexes
 #
@@ -29,6 +29,5 @@ module Location
 
     # Validations
     validates :name,    presence: true, uniqueness: false, allow_blank: false
-    validates :capital, presence: true, inclusion: { in: %w[true false] }
   end
 end
