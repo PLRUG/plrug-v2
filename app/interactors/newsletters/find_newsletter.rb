@@ -15,7 +15,7 @@ module Newsletters
     private
 
     def find_newsletter
-      context.job = Job.find(id)
+      context.job = Marketing::Newsletter.find(id)
     end
   end
 end

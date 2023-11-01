@@ -15,7 +15,7 @@ module Cities
     private
 
     def create_city
-      context.city = City.create!(params)
+      context.city = Location::City.create!(params)
     end
   end
 end

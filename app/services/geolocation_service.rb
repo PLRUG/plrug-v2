@@ -44,7 +44,7 @@ class GeolocationService
   end
 
   def update_record_coordinates(geolocation)
-    @record.update(latitude: geolocation.dig(:lat), longitude: geolocation[:lon])
+    @record.update(latitude: geolocation[:lat], longitude: geolocation[:lon])
   end
 
   def log_geocoding_error(error)

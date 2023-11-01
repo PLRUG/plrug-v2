@@ -15,7 +15,7 @@ module Partners
     private
 
     def create_partner
-      context.partner = Partner.create!(params)
+      context.partner = Marketing::Partner.create!(params)
     end
   end
 end

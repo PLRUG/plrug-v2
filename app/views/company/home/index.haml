@@ -8,11 +8,12 @@
   .container
     .row
       .col-md-12{class: 'tex-center'}
-        %h1{class: 'title bold'} Ruby on Poland
+        = image_tag('logo.svg', class: 'logo')
         %p{class: 'description'} Join the community crafted by <span class='bold black'>Ruby-lovers</span> for<br> web artisans, nerds  and passionates.<br>
         %ul{class: 'list-unstyled list-inline actions'}
           %li
-            = link_to '', class: 'btn btn-primary btn-lg btn-rop discord' do
+            = link_to 'https://discord.com/invite/bUV9u3PSPF', 
+            class: 'btn btn-primary btn-lg btn-rop discord' do
               %i{class: 'fa-brands fa-discord'}
               Join Discord
           %li
@@ -32,9 +33,30 @@
         %br
         .row
           .col-md-12
-            - (1..6).each do |partner|
-              .col-md-2.col-sm-2
-                .jumbotron{class: 'partner'}
+            .col-md-2.col-sm-2.col-md-offset-1
+              .panel.panel-default
+                .panel-body
+                  = image_tag('partners/visuality.svg', style: 'width: 120px; height: 50px;')
+
+            .col-md-2.col-sm-2
+              .panel.panel-default
+                .panel-body
+                  = image_tag('partners/occson.svg', style: 'width: 120px; height: 50px;')
+            
+            .col-md-2.col-sm-2
+              .panel.panel-default
+                .panel-body
+                  = image_tag('partners/netguru.svg', style: 'width: 120px; height: 50px;') 
+
+            .col-md-2.col-sm-2
+              .panel.panel-default
+                .panel-body
+                  = image_tag('partners/reffine.svg', style: 'width: 120px; height: 50px;')
+
+            .col-md-2.col-sm-2
+              .panel.panel-default
+                .panel-body
+                  = image_tag('partners/2n.svg', style: 'width: 120px; height: 50px;')
 
         %br
         .row
@@ -51,7 +73,7 @@
 
         .row
           .col-md-6{class: 'text-center'}
-            .jumbotron{class: 'block-bg'}
+            .jumbotron{class: 'block-bg developer'}
               %h2{class: 'bold'}
                 For Developers
               %p create our developer account.
@@ -59,7 +81,7 @@
               class: 'btn btn-primary btn-lg btn-rop top' do
                 Coming Soon
           .col-md-6{class: 'text-center'}
-            .jumbotron{class: 'block-bg'}
+            .jumbotron{class: 'block-bg company'}
               %h2{class: 'bold'}
                 For Companies
               %p create our company account.

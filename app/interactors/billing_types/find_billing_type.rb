@@ -15,7 +15,7 @@ module BillingTypes
     private
 
     def find_billing_type
-      context.billing_type = BillingType.find(id)
+      context.billing_type = Billing::BillingType.find(id)
     end
   end
 end

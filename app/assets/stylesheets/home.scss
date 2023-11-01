@@ -6,14 +6,20 @@
     margin-top: -23px;
     padding-top: 130px;
     padding-bottom: 130px;
-    background-color: #000;
+    background-color: #FFF;
     color: #FFF;
+
+    .logo
+    {
+      position: relative;
+      height: 100px;
+    }
 
     .black
     {
       position: relative;
       text-transform: uppercase;
-      color: #FFF;
+      color: #000;
     }
 
     .title
@@ -47,8 +53,8 @@
   #partners
   {
     position: relative;
-    background-color: #CCC;
-    border: 1px solid #CCC;
+    background-color: #F4F5F7;
+    border: 1px solid #F4F5F7;
     padding-top: 30px;
     padding-bottom: 60px;
 
@@ -56,7 +62,7 @@
     {
       position: relative;
       text-transform: uppercase;
-      color: #FFF;
+      color: #000;
     }
 
     .partner
@@ -75,10 +81,27 @@
     padding-top: 50px;
     padding-bottom: 20px;
 
+    .developer
+    {
+      background-size: contain;
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-image: url('ilustrations/for-developers.png');
+    }
+
+    .company
+    {
+      background-size: contain;
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-image: url('ilustrations/for-developers.png');
+    }
+
     .block-bg
     {
+      border: 1px solid #CCC;
       position: relative;
-      background-color: #EEE;
+      background-color: #FFF;
       color: #000;
 
       h2

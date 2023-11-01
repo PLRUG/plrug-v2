@@ -1,0 +1,21 @@
+= link_to community_company_path(company) do
+  .col-md-3
+    .panel.panel-default{class: 'company'}
+      .panel-body
+        .row
+          .col-md-12{class: 'text-center'}
+            %span{id: 'kind'}
+              = company.kind
+            = image_tag('', class: 'logo')
+            %h4{class: 'text-center title'}
+              = truncate(company.name, length: 15)
+        .row
+          .col-md-12{class: 'text-center'}
+            %span{class: 'badge'}
+              %i{class: 'fa-solid fa-circle ico'}
+              Hiring Now
+
+        .row
+          .col-md-12
+            %p{class: 'description'}
+              = truncate(company.about, length: 165)

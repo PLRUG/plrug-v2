@@ -16,7 +16,7 @@ module Users
     private
 
     def generate_referral_link
-      "app.onrop.pl/r/#{username}_#{generate_unique_token}"
+      "app.plrug.pl/r/#{username}_#{generate_unique_token}"
     end
 
     def generate_unique_token

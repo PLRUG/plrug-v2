@@ -15,7 +15,7 @@ module Groups
     private
 
     def create_group
-      context.group = Group.create!(params)
+      context.group = Community::Group.create!(params)
     end
   end
 end

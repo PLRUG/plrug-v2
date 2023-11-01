@@ -5,9 +5,83 @@
 %section{id: 'content'}
   .container
     .row
-      .col-md-8.col-md-offset-2
-        %h1{class: 'bold'}= @post.title
+      .col-md-12
+        = link_to content_posts_path,
+          class: 'btn btn-default btn-lg' do
+          %i{class: 'fa-solid fa-chevron-left'}
+          Back
 
     .row
-      .col-md-8.col-md-offset-2
-        = raw(@post.body)
+      .col-md-12
+
+        .row
+          %br
+          .col-md-8
+            .row
+              .col-md-12
+                .jumbotron{style: 'height: 380px; background-color: #CCC;'}
+
+            .row
+              .col-md-12
+                %h1{class: 'bold'}
+                  = @post.title
+
+              .col-md-12
+                %br
+                %ul{class: 'list-unstyled list-inline'}
+                  %li
+                    %i{class: 'fa-regular fa-calendar'}
+                    = @post.created_at.strftime('%B %d, %Y')
+                  %li
+                    %i{class: 'fa-regular fa-clock'}
+                    = reading_time(@post.body)
+                  %li
+                    %i{class: 'fa-regular fa-circle-user'}
+                    = @post.user.name
+                  %li{class: 'pull-right'}
+                    %i{class: 'fa-solid fa-circle'}
+                    Last article update
+                    = time_ago_in_words(@post.updated_at)
+              .col-md-12
+                %ul{class: 'list-unstyled list-inline'}
+                  %li
+                    %h4{class: 'uppercase'}
+                      Compartilhar
+                  %li
+                    = social_share_button_tag(@post.title)
+
+              .col-md-12
+                %br
+                = raw(@post.body)
+
+          .col-md-4
+            .row
+              .col-md-12
+                %h2{class: 'bold'} Most Read
+                %p Read the most accessed posts.
+                %br
+
+                - Content::Post.most_read.limit(3).each do |post|
+                  .panel.panel-default
+                    .panel-body
+                      = image_tag('', class: 'thumbnail-md')
+                      %h4{class: 'bold'}= post.title
+
+            .row
+              .col-md-12
+                %h3{class: 'bold'} Editoriais
+                - tags.each do |tag|
+                  %span{class: 'badge badge-item'}
+                    = link_to tag, content_posts_path(q: { tag_cont: tag})
+
+            %br
+            .row
+              .col-md-12
+                %h3{class: 'bold'} Related posts
+                %p Read the related posts of this one.
+
+                - Content::Post.most_read.limit(3).each do |post|
+                  .panel.panel-default
+                    .panel-body
+                      = image_tag('', class: 'thumbnail-md')
+                      %h4{class: 'bold'}= post.title

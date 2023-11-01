@@ -15,7 +15,7 @@ module JobKinds
     private
 
     def create_job_kind
-      context.job_kind = JobKind.create!(params)
+      context.job_kind = Content::JobKind.create!(params)
     end
   end
 end

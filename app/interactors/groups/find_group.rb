@@ -15,7 +15,7 @@ module Groups
     private
 
     def find_group
-      context.group = Group.find(id)
+      context.group = Community::Group.find(id)
     end
   end
 end

@@ -18,7 +18,7 @@
                 .col-md-4{style: 'padding-top: 20px;'}
                   = form_for(@newsletter, {url: marketing_newsletters_path, html: { class: 'form-inline'}}) do |f|
                     .form-group
-                      = f.email_field :email, class: 'form-control', 
+                      = f.email_field :email, class: 'form-control',
                       placeholder: 'you@email.com', style: 'height: 44px; width: 165px;'
                     = f.submit 'Subscribe', class: 'btn btn-primary btn-rop'
 
@@ -42,11 +42,11 @@
                         placeholder: 'Title, Company, etc.'
                       .field
                         = f.label :job_kind_id, 'Type'
-                        = f.collection_select(:job_kind_id_eq, JobKind.order(:name), :id, :name,
+                        = f.collection_select(:job_kind_id_eq, Content::JobKind.order(:name), :id, :name,
                         { include_blank: 'Select'}, { class: 'form-control' })
                       .field
                         = f.label :citi_id, 'Location'
-                        = f.collection_select(:city_id_eq, City.all, :id, :name, 
+                        = f.collection_select(:city_id_eq, Location::City.all, :id, :name,
                         { include_blank: 'Select'}, { class: 'form-control' })
                       .field
                         = f.label :remote, 'Remote', style: 'margin-top: 10px;'
@@ -55,7 +55,7 @@
                         %label{class: 'slidable-checkbox'}
                           = f.check_box :remote_eq
                           %span{class: 'slider'}
-                      
+
                       %br
                       .field
                         = f.submit 'Filter Jobs',

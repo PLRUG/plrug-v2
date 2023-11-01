@@ -1,0 +1,83 @@
+.companies
+{
+  position: relative;
+
+  #kind
+  {
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #999;
+    background-color: #EEE;
+    top: -15px;
+    right: 0px;
+    border-bottom-left-radius: 12px;
+    font-weight: bold;
+    padding: 8px;
+  }
+
+  a
+  {
+    position: relative;
+    text-decoration: none;
+    color: inherit !important;
+  }
+
+  .company
+  {
+    background-color: #FFF;
+    box-shadow: 4px 4px 10px #CCC;
+
+    &.hover, &:hover
+    {
+      position: relative;
+      background-color: #EEE;
+      cursor: pointer;
+    }
+
+    .logo
+    {
+      cursor: normal;
+      position: relative;
+      background-color: #EEE;
+      border: 1px solid #CCC;
+      border-radius: 8px;
+      display: inline-block;
+      margin-left: -120px;
+      width: 64px;
+      height: 64px;
+    }
+    .title
+    {
+      position: relative;
+      margin-left: 30px;
+      margin-top: -38px;
+      font-weight: bold;
+    }
+
+    .badge
+    {
+      position: relative;
+      border-radius: 15px;
+      padding: 10px;
+      font-weight: normal;
+      background-color: transparent;
+      border: 1px solid #CCC;
+      color: #000;
+      margin-top: 20px;
+
+      i
+      {
+        position: relative;
+        color: rgb(43, 199, 100);
+      }
+    }
+
+    .description
+    {
+      position: relative;
+      margin-top: 20px;
+      font-size: 13px;
+    }
+  }
+}

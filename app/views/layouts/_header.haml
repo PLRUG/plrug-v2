@@ -11,32 +11,71 @@
           %span.icon-bar
           %span.icon-bar
         %a.navbar-brand{:href => root_path, class: 'bold'} 
-          <span class='white-bg'>Ruby on</span>
-          <span class='red-bg'>Poland</span>
+          = image_tag('logo.jpg', class: 'logo')
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         %ul.nav.navbar-nav
-          %li
-            = link_to 'https://www.meetup.com/topics/ruby/pl/',
-            target: :_blank do
-              %i{class: 'fa-brands fa-meetup ico'}
-              Meetups
-          %li
-            = link_to 'https://forum.rubyonrails.pl/',
-            target: :_blank do
-              %i{class: 'fa-regular fa-comments ico'}
-              Forum
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true",
+            "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              %i{class: 'fa-solid fa-people-group ico'}
+              Community
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to analytic_radars_path,
+                target: :_blank do
+                  %i{class: 'fa-solid fa-location-dot ico'}
+                  Radar
+              %li
+                = link_to '',
+                target: :_blank do
+                  %i{class: 'fa-solid fa-calendar ico'}
+                  Events
+              %li
+                = link_to 'https://www.meetup.com/topics/ruby/pl/',
+                target: :_blank do
+                  %i{class: 'fa-brands fa-meetup ico'}
+                  Meetups
           %li
             = link_to content_paths_path do
               %i{class: 'fa-solid fa-play'}
               Learn
-          %li
-            = link_to content_posts_path do
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", 
+            "data-toggle" => "dropdown", :href => "#", :role => "button"}
               %i{class: 'fa-brands fa-discourse'}
-              Blog
-          %li
-            = link_to content_jobs_path do
+              Discuss
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to content_posts_path do
+                  %i{class: 'fa-brands fa-discourse ico'}
+                  Blog
+              %li
+                = link_to 'https://forum.rubyonrails.pl/',
+                target: :_blank do
+                  %i{class: 'fa-brands fa-discourse ico'}
+                  Forum
+              %li
+                = link_to 'https://discord.com/invite/bUV9u3PSPF',
+                target: :_blank do
+                  %i{class: 'fa-brands fa-meetup ico'}
+                  Discord
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", 
+            "data-toggle" => "dropdown", :href => "#", :role => "button"}
               %i{class: 'fa-solid fa-briefcase ico'}
-              Jobs
+              Get Hired
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to community_companies_path do
+                  %i{class: 'fa-solid fa-briefcase ico'}
+                  Companies
+              %li
+                = link_to content_jobs_path do
+                  %i{class: 'fa-solid fa-briefcase ico'}
+                  Jobs
 
         %ul.nav.navbar-nav.navbar-right
           - if !current_user
@@ -83,7 +122,7 @@
             = link_to root_path do
               Partners
           %li
-            = link_to '#discord',
+            = link_to 'https://discord.com/invite/bUV9u3PSPF',
             class: 'btn btn-primary btn-md btn-rop discord' do
               %i{class: 'fa-brands fa-discord ico'}
               Join our Discord

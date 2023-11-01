@@ -26,31 +26,33 @@
 #  country_id      :integer
 #  currency_id     :string
 #  job_kind_id     :integer
+#  job_level_id    :integer
 #  user_id         :integer          not null
 #
 # Indexes
 #
-#  index_jobs_on_country_id  (country_id)
-#  index_jobs_on_user_id     (user_id)
+#  index_jobs_on_country_id    (country_id)
+#  index_jobs_on_job_level_id  (job_level_id)
+#  index_jobs_on_user_id       (user_id)
 #
 # Foreign Keys
 #
-#  country_id  (country_id => countries.id)
-#  user_id     (user_id => users.id)
+#  country_id    (country_id => countries.id)
+#  job_level_id  (job_level_id => job_levels.id)
+#  user_id       (user_id => users.id)
 #
 FactoryBot.define do
   factory :job do
 
     # Attributes
     title { FFaker::Job.title }
-    status { Job::STATUS.sample }
+    status { Job.statuses.keys.sample }
     remote { false }
     description { FFaker::Lorem.paragraphs(rand(8..12)).join }
     address { FFaker::AddressPL.street_address }
-    zipcode { FFaker::AddressPL.zip_code }
+    zip_code { FFaker::AddressPL.zip_code }
     renew_counter { 0 }
     apply_path { FFaker::Internet.http_url }
-    tags { FFaker::Tweet.tags }
 
     # Analytics
     clicks { 0 }
@@ -65,6 +67,7 @@ FactoryBot.define do
     billing_type { association :billing_type }
     currency { association :currency }
     job_kind { association :job_kind }
+    job_level { association :job_level }
     city { association :city }
     country { association :country }
     user { association :user }
@@ -76,7 +79,7 @@ FactoryBot.define do
 
     # Callbacks
     after(:create) do |job, evaluator|
-      GeololocationService.new(job).geocode_record
+      GeolocationService.new(job).geocode_record
     end
   end
 end

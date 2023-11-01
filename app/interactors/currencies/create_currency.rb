@@ -15,7 +15,7 @@ module Currencies
     private
 
     def create_currency
-      context.currency = Currency.create!(params)
+      context.currency = Billing::Currency.create!(params)
     end
   end
 end

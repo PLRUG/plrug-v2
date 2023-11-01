@@ -15,7 +15,7 @@ module Jobs
     private
 
     def find_job
-      context.job = Job.find(id)
+      context.job = Content::Job.friendly.find(id)
     end
   end
 end

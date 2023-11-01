@@ -5,7 +5,8 @@
   .navbar-default
   {
     position: relative;
-    background-color: #CCC;
+    background-color: #FFF;
+    border-bottom: 1px solid #EEE;
     padding-top: 20px;
     padding-bottom: 20px;
   }
@@ -15,7 +16,7 @@
     position: relative;
     padding-top: 120px;
     padding-bottom: 120px;
-    margin-top: -20px;
+    margin-top: -30px;
     background-color: #CCC;
 
     #brand
@@ -36,7 +37,7 @@
         position: relative;
         color: #000;
         font-weight: bold;
-        font-size: 40px;  
+        font-size: 40px;
       }
 
       .subtitle
@@ -151,6 +152,33 @@
         position: relative;
         margin-top: -10px;
       }
+    }
+  }
+
+  .thumbnail-md
+  {
+    position: relative;
+    margin-right: 6px;
+    float: left;
+    width: 84px;
+    height: 84px;
+    border: 1px solid #CCC;
+    background-color: #CCC;
+    border-radius: 5px;
+  }
+
+  .badge-item
+  {
+    position: relative;
+    background-color: #CCC;
+    border-radius: 2px;
+    margin: 3px;
+    padding: 8px;
+
+    a
+    {
+      position: relative;
+      color: #FFF;
     }
   }
 

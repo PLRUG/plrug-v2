@@ -15,7 +15,7 @@ module Currencies
     private
 
     def find_currency
-      context.currency = Currency.find(id)
+      context.currency = Billing::Currency.find(id)
     end
   end
 end

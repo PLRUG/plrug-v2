@@ -8,7 +8,7 @@ module FormObjects
     attr_accessor :name, :email, :message
 
     def initialize(name, email, message)
-      @name = name,
+      @name = name
       @email = email
       @message = message
     end

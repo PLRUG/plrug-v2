@@ -15,7 +15,7 @@ module Countries
     private
 
     def create_country
-      context.country = Contry.create!(params)
+      context.country = Location::Country.create!(params)
     end
   end
 end

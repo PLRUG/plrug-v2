@@ -1,7 +1,7 @@
 # Country
 #
-Country.destroy_all
-Country.create(
+Location::Country.destroy_all
+Location::Country.create(
   [
     { name: 'Poland' }
   ]

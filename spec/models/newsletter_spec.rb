@@ -4,6 +4,8 @@
 #
 #  id         :integer          not null, primary key
 #  email      :string
+#  status     :boolean          default(NULL)
+#  token      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

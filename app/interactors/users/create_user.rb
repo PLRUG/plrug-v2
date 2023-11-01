@@ -15,7 +15,7 @@ module Users
     private
 
     def create_user
-      context.user = User.create!(params)
+      context.user = User::User.create!(params)
     end
   end
 end

@@ -5,7 +5,7 @@ module Company
 
     # GET /
     def index
-      @groups = Group.all
+      @groups = Community::Group.all
     end
   end
 end

@@ -15,7 +15,7 @@ module BillingTypes
     private
 
     def create_billing_type
-      context.billing_type = BillingType.create!(params)
+      context.billing_type = Billing::BillingType.create!(params)
     end
   end
 end

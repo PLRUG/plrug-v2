@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   # Authentication
   # @implemented
-  devise_for :users
+  devise_for :users, class_name: 'User::User',
+   controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 
   # Application
   # @implemented
@@ -15,6 +18,20 @@ Rails.application.routes.draw do
 
     get 'privacy'  => 'privacy#index'
     get 'terms'    => 'terms#index'
+  end
+
+  # Community
+  # @implemented
+  namespace :community, path: '/' do
+    resources :companies, only: %i[index show]
+    resources :events do
+      resources :talks do
+        member do
+          post 'vote' => 'vote#create'
+          delete 'vote/:id' => 'vote#destroy'
+        end
+      end
+    end
   end
 
   # Content
@@ -45,5 +62,21 @@ Rails.application.routes.draw do
   # @implemented
   namespace :analytic, path: '/' do
     resources :radars, only: %i[index]
+  end
+
+  # API
+  # @implemented
+  namespace :api, constraint: { subdomain: 'api' } do
+    namespace :v1 do
+      defaults format: :json do
+        # Some JSON from here
+      end
+    end
+
+    namespace :v2 do
+      defaults format: :xml do
+        # Some XML from Here
+      end
+    end
   end
 end

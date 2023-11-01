@@ -15,7 +15,7 @@ module Posts
     private
 
     def find_post
-      context.post = Post.find(id)
+      context.post = Content::Post.find(id)
     end
   end
 end

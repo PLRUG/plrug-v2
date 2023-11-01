@@ -5,7 +5,8 @@ module Analytic
 
     # GET /radars
     def index
-      @jobs = Job.all.load_async
+      @jobs = Content::Job.active
+                          .pluck(:id, :title, :latitude, :longitude)
     end
   end
 end

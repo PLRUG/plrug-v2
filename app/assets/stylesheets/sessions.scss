@@ -9,4 +9,21 @@
     margin-top: 30px;
     margin-bottom: 50px;
   }
+
+  .divider
+  {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+
+  .divider::before, .divider::after
+  {
+    flex: 1;
+    content: '';
+    padding: 1px;
+    background-color: #EEE;
+    margin: 5px;
+  }
 }

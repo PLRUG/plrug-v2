@@ -5,13 +5,13 @@ module Content
     before_action :authenticate_user!, only: %i[new create edit update destroy]
     before_action :set_job, only: %i[show edit update destroy expire renew click]
 
-    before_action -> { ransack_search_for(Job, params) }
+    before_action -> { ransack_search_for(Content::Job, params) }
 
     layout 'jobs'
 
     # GET /jobs
     def index
-      @newsletter = Newsletter.new
+      @newsletter = Marketing::Newsletter.new
       @jobs = @q.result(distinct: true)
                 .includes(:city, :job_kind)
                 .order(created_at: :asc)
@@ -102,7 +102,7 @@ module Content
     def job_params
       params.require(:job)
             .permit(:title, :kind, :location, :apply_path, :remote,
-                    :description, :min_amount, :max_amount, :currency, 
+                    :description, :min_amount, :max_amount, :currency,
                     :billing_type)
     end
   end

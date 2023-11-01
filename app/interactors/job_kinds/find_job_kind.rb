@@ -15,7 +15,7 @@ module JobKinds
     private
 
     def find_job_kind
-      context.job_kind = JobKind.find(id)
+      context.job_kind = Content::JobKind.find(id)
     end
   end
 end

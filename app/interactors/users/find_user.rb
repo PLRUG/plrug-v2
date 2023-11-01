@@ -15,7 +15,7 @@ module Users
     private
 
     def find_user
-      context.user = User.find(id)
+      context.user = User::User.find(id)
     end
   end
 end

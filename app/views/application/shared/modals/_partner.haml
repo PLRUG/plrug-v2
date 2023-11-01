@@ -8,7 +8,7 @@
         %i{class: 'fa-solid fa-clock icon pull-left', style: 'font-size: 30px; margin-top: 8px; margin-right: 10px;'}
         %h4.modal-title{class: 'bold'} Partnership Program
         %p Subscribe ur partner program.
-      = form_for([:marketing, Partner.new]) do |f|
+      = form_for(Marketing::Partner.new) do |f|
         .modal-body{style: 'padding: 25px;'}
 
           .field
@@ -17,7 +17,7 @@
             placeholder: 'Name', autocomplete: 'off'
           .field
             = f.label :kind, 'Partnership Program'
-            = f.select(:kind, Partner.kinds.keys, 
+            = f.select(:kind, Marketing::Partner.kinds.keys,
             { included_blank: 'Select partnership type'},
             {class: 'form-control'})
           .field

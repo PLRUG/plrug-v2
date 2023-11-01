@@ -3,7 +3,7 @@
 module Content
   class PostsController < ApplicationController
     before_action :set_post, only: [:show]
-    before_action -> { ransack_search_for(Post, params) }
+    before_action -> { ransack_search_for(Content::Post, params) }
 
     # GET /posts/
     def index
@@ -19,7 +19,7 @@ module Content
     private
 
     def set_post
-      @post = Post.find(params[:id])
+      @post = Content::Post.friendly.find(params[:id])
     end
   end
 end

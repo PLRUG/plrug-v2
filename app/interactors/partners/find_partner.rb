@@ -15,7 +15,7 @@ module Partners
     private
 
     def find_partner
-      context.partner = Partner.find(id)
+      context.partner = Marketing::Partner.find(id)
     end
   end
 end

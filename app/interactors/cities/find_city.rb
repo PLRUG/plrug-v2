@@ -15,7 +15,7 @@ module Cities
     private
 
     def find_city
-      context.city = City.find(id)
+      context.city = Location::City.find(id)
     end
   end
 end

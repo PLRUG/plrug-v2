@@ -4,6 +4,6 @@ module Newsletters
   class UpdateNewsletterOrganizer
     include Interactor::Organizer
 
-    organize FindNewsletter, UpdateNewsletter
+    organize FindNewsletter, UpdateNewsletter, ToggleNewsletterStatus
   end
 end

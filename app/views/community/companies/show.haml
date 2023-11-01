@@ -1,0 +1,23 @@
+= provide :title, @company.name
+= provide :description, ''
+= provide :keywords, ''
+
+%section{id: 'content'}
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+
+        .row
+          %h3{class: 'text-center'}
+            Jobs at #{@company.name}
+          %br
+          %p
+            = truncate(@company.about, length: 550)
+
+        %br
+        .row
+          = render partial: 'job', collection: @jobs
+          
+          .col-md-12
+            .text-center
+              = paginate(@jobs)

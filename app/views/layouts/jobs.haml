@@ -11,5 +11,6 @@
     %script{:crossorigin => "anonymous", :src => "https://kit.fontawesome.com/5165849ba2.js"}
   %body{:class => "#{controller.controller_name}"}
     = render partial: 'layouts/header'
+    = render partial: 'shared/banner'
     = yield
     = render partial: 'application/shared/jobs_footer'

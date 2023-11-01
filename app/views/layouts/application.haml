@@ -2,7 +2,7 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
-    %title Ruby on Poland | #{ yield :title }
+    %title PLRUG | #{ yield :title }
     %meta{content: "width=device-width,initial-scale=1", name: "viewport"}
     = csrf_meta_tags
     = csp_meta_tag
@@ -14,5 +14,6 @@
     = render partial: 'application/addons/crisp_chat'
   %body{:class => "#{controller.controller_name}"}
     = render partial: 'layouts/header'
+    = render partial: 'shared/banner'
     = yield
     = render partial: 'layouts/footer'

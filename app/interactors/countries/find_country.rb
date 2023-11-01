@@ -15,7 +15,7 @@ module Countries
     private
 
     def find_country
-      context.country = Country.find(id)
+      context.country = Location::Country.find(id)
     end
   end
 end

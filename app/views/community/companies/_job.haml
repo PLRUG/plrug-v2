@@ -1,0 +1,23 @@
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        .col-md-7
+          %h5{class: 'bold'}
+            = link_to job.title, content_job_path(job)
+          %p= job.user&.name
+        .col-md-5
+          %ul{class: 'list-unstyled'}
+            %li
+              %p
+                %i{class: ''}
+                = job.currency.abbrv
+            %li
+              %p
+                %i{class: ''}              
+                = job.min_amount
+                -
+                = job.max_amount
+            %li
+              %p
+                = job.created_at.strftime('')

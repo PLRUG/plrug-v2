@@ -15,7 +15,7 @@ module Newsletters
     private
 
     def create_job
-      context.newsletter = Newsletter.create!(params)
+      context.newsletter = Marketing::Newsletter.create!(params)
     end
   end
 end

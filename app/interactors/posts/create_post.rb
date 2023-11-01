@@ -15,7 +15,7 @@ module Posts
     private
 
     def create_post
-      context.post = Post.create!(params)
+      context.post = Content::Post.create!(params)
     end
   end
 end

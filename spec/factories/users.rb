@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  about                  :text
 #  address                :string
 #  admin                  :boolean          default(FALSE)
 #  avatar                 :string
@@ -12,11 +13,13 @@
 #  latitude               :decimal(, )
 #  longitude              :decimal(, )
 #  name                   :string
+#  provider               :string
 #  referral_link          :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  slug                   :string
+#  uid                    :string
 #  username               :string
 #  zip_code               :string
 #  created_at             :datetime         not null
@@ -49,6 +52,7 @@ FactoryBot.define do
     password_confirmation { '!Test123' }
     address { FFaker::AddressPL.street_address }
     zip_code { FFaker::AddressPL.zip_code }
+    about { FFaker::Lorem.paragraphs(rand(8..12)).join }
     admin { false }
 
     # Admin
@@ -60,13 +64,25 @@ FactoryBot.define do
       admin { true }
     end
 
+    # Company
+    trait :company do
+      name { FFaker::Company.name }
+      kind { 'company' }
+    end
+
+    # Startup 
+    trait :startup do
+      name { FFaker::Company.name }
+      kind { 'startup' }
+    end
+
     # Associations
     country { association :country }
     city { association :city }
 
     # Callbacks
     after(:create) do |user, evaluator|
-      FileAttachService.new(user.avatar)
+      # FileAttachService.new(user.avatar)
       GeolocationService.new(user).geocode_record
     end
   end

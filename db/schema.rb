@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_14_133338) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_22_013457) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -56,6 +56,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_133338) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -81,6 +88,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_133338) do
     t.string "abbrv"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.date "date"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -101,6 +117,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_133338) do
   end
 
   create_table "job_kinds", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "job_levels", force: :cascade do |t|
     t.string "name"
     t.string "slug"
     t.datetime "created_at", null: false
@@ -132,7 +155,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_133338) do
     t.string "address"
     t.integer "country_id"
     t.string "zip_code"
+    t.integer "job_level_id"
     t.index ["country_id"], name: "index_jobs_on_country_id"
+    t.index ["job_level_id"], name: "index_jobs_on_job_level_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -140,6 +165,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_133338) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "token"
+    t.boolean "status", default: false
   end
 
   create_table "partners", force: :cascade do |t|
@@ -167,6 +194,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_133338) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "talks", force: :cascade do |t|
+    t.string "title"
+    t.text "about"
+    t.integer "events_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["events_id"], name: "index_talks_on_events_id"
+    t.index ["user_id"], name: "index_talks_on_user_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "talk_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["talk_id"], name: "index_topics_on_talk_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -188,19 +235,38 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_133338) do
     t.decimal "longitude"
     t.string "address"
     t.string "zip_code"
+    t.text "about"
+    t.string "provider"
+    t.string "uid"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer "talk_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["talk_id"], name: "index_votes_on_talk_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cities", "countries"
+  add_foreign_key "events", "users"
   add_foreign_key "jobs", "countries"
+  add_foreign_key "jobs", "job_levels"
   add_foreign_key "jobs", "users"
   add_foreign_key "partners", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "talks", "events", column: "events_id"
+  add_foreign_key "talks", "users"
+  add_foreign_key "topics", "talks"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "countries"
+  add_foreign_key "votes", "talks"
+  add_foreign_key "votes", "users"
 end

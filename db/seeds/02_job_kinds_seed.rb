@@ -1,7 +1,7 @@
 # JobKind
 #
-JobKind.destroy_all
-JobKind.create(
+Content::JobKind.destroy_all
+Content::JobKind.create(
   [
     { name: 'Full-time' },
     { name: 'Part-time' },
