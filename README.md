@@ -1,4 +1,4 @@
-<h1 align='center'>Ruby on Poland</h1>
+<h1 align='center'>PLRUG (Polish Ruby User Group)</h1>
 <p align='center'>
   <b>Your future is created by what you do today, not tomorrow.</b> <br/>
   <b>Don't limit your challenges. Challenge your limits.</b>
