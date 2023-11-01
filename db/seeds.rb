@@ -7,7 +7,7 @@ require 'logger'
 seed_files_directory = File.join(Rails.root, 'db', 'seeds')
 
 # Create a logger for better log management.
-logger = Logger.new('seed_runner.log')
+logger = Logger.new('log/seed_runner.log')
 
 # Define a method for running seed files.
 def run_seed_file(seed_file, logger)
