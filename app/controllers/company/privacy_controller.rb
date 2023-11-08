@@ -2,6 +2,7 @@
 
 module Company
   class PrivacyController < ApplicationController
+    
     # GET /privacy
     def index; end
   end

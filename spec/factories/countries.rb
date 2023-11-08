@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 FactoryBot.define do
-  factory :country, class_name: 'Location::Country' do
+  factory :country, class: 'Location::Country' do
 
     # Attributes
     name { FFaker::Address.country }

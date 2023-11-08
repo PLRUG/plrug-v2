@@ -5,6 +5,7 @@ module Community
     before_action :set_company, only: [:show]
     before_action -> { ransack_search_for(User::User, params) }
 
+    # GET /companies/
     def index
       @companies = @q.result(distinct: true)
                      .where(kind: %i[company startup])
@@ -14,6 +15,7 @@ module Community
       @companies = @companies.page(params[:page]).per(12)
     end
 
+    # GET /companies/:id
     def show
       @jobs = @company.jobs
                       .active

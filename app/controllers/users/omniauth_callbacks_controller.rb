@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  
   # Handles the callback for GitHub OmniAuth provider.
   def github
     callback_for(:github)

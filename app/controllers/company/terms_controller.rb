@@ -2,7 +2,8 @@
 
 module Company
   class TermsController < ApplicationController
-  # GET /terms
-  def index; end
+    
+    # GET /terms
+    def index; end
   end
 end

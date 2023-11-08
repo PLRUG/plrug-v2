@@ -19,7 +19,7 @@ module Marketing
     private
 
     def newsletter_params
-      params.require(:newsletter).permit(:email)
+      params.require(:marketing_newsletter).permit(:email)
     end
   end
 end

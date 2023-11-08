@@ -23,7 +23,7 @@
 #
 
 FactoryBot.define do
-  factory :post, class_name: 'Content::Post' do
+  factory :post, class: 'Content::Post' do
 
     # Attributes
     title { FFaker::Book.title }

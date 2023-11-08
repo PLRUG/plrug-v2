@@ -21,7 +21,7 @@
 #  user_id  (user_id => users.id)
 #
 FactoryBot.define do
-  factory :partner, class_name: 'Community::Partner' do
+  factory :partner, class: 'Community::Partner' do
 
     # Attributes
     name { FFaker::Company.name }
