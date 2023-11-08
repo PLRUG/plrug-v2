@@ -18,7 +18,7 @@
 #  user_id  (user_id => users.id)
 #
 FactoryBot.define do
-  factory :event do
+  factory :event, class: 'Event::Event' do
     name { "MyString" }
     date { "2023-10-16" }
     user { nil }

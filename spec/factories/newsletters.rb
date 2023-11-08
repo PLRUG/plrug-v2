@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 FactoryBot.define do
-  factory :newsletter do
+  factory :newsletter, class: 'Marketing::Newsletters' do
 
     # Attributes
     email { FFaker::Internet.email }    

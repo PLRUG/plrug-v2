@@ -42,7 +42,7 @@
 #  user_id       (user_id => users.id)
 #
 FactoryBot.define do
-  factory :job do
+  factory :job, class: 'Content::Job' do
 
     # Attributes
     title { FFaker::Job.title }

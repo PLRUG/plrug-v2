@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 FactoryBot.define do
-  factory :billing_type do
+  factory :billing_type, class: 'Billing::BillingType' do
 
     # Attributes
     name { 'Yearly' }

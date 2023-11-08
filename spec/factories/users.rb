@@ -42,7 +42,7 @@
 require 'open-uri'
 
 FactoryBot.define do
-  factory :user do
+  factory :user, class: 'User::User' do
 
     # Attributes
     name { FFaker::Name.name }

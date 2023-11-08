@@ -21,7 +21,7 @@
 #  user_id    (user_id => users.id)
 #
 FactoryBot.define do
-  factory :talk do
+  factory :talk, class_name: 'Event::Talk' do
     title { "MyString" }
     events { nil }
     user { nil }

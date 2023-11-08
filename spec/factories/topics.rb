@@ -18,7 +18,7 @@
 #  talk_id  (talk_id => talks.id)
 #
 FactoryBot.define do
-  factory :topic do
+  factory :topic, class: 'Event::Topic' do
     title { "MyString" }
     description { "MyText" }
     talk { nil }

@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 FactoryBot.define do
-  factory :group do
+  factory :group, class: 'Comunity::Group' do
 
     # Attributes
     name { FFaker::Company.name }

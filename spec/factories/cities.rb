@@ -19,7 +19,7 @@
 #  country_id  (country_id => countries.id)
 #
 FactoryBot.define do
-  factory :city do
+  factory :city, class: 'Location::City' do
 
     # Attributes
     name { FFaker::Address.city }

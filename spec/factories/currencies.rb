@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 FactoryBot.define do
-  factory :currency do
+  factory :currency, class: 'Billing::Currency' do
 
     # Attributes
     name { FFaker::Currency.name }

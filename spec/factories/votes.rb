@@ -19,7 +19,7 @@
 #  user_id  (user_id => users.id)
 #
 FactoryBot.define do
-  factory :vote do
+  factory :vote, class: 'Event::Talk' do
     talk { nil }
     user { nil }
   end
