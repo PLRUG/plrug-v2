@@ -19,6 +19,14 @@
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: 'Name', class: 'form-control', placeholder: 'Name'}
+                  = f.association :city,
+                  prompt: 'Choose a City',
+                  input_html: { class: 'form-control' }
+                  = f.association :country,
+                  collection: Location::Country.where(name: 'Poland'),
+                  prompt: 'Choose a Country', 
+                  input_html: { class: 'form-control' }
+                  %hr
                   = f.input :email,
                     required: true,
                     label: 'E-mail',

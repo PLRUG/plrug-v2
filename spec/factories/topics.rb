@@ -19,8 +19,8 @@
 #
 FactoryBot.define do
   factory :topic, class: 'Event::Topic' do
-    title { "MyString" }
-    description { "MyText" }
-    talk { nil }
+    title { FFaker::Book.title }
+    description { FFaker::Lorem.paragraphs(rand(1..3)) }
+    talk { association :talk }
   end
 end

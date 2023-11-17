@@ -4,12 +4,20 @@
     = f.text_field :title, class: 'form-control', required: 'required',
     placeholder: 'Job Title'
   .field.col-md-12
-    = f.label :kind, 'Hiring type'
-    = f.collection_select(:kind, JobKind.order(:name), :id, :name,
+    = f.label :job_kind_id, 'Hiring Type'
+    = f.collection_select(:job_kind_id, Content::JobKind.order(:name), :id, :name,
     { include_blank: 'Select' }, {class: 'form-control'})
   .field.col-md-12
-    = f.label :location, 'Location'
-    = f.collection_select(:location, City.all, :id, :name, 
+    = f.label :job_level_id, 'Hiring Level'
+    = f.collection_select(:job_level_id, Content::JobLevel.order(:name), :id, :name,
+    { include_blank: 'Select' }, {class: 'form-control'})
+  .field.col-md-6
+    = f.label :city_id, 'City'
+    = f.collection_select(:city_id, Location::City.all, :id, :name, 
+    { include_blank: 'Select'}, {class: 'form-control'})
+  .field.col-md-6
+    = f.label :city_id, 'City'
+    = f.collection_select(:city_id, Location::City.all, :id, :name, 
     { include_blank: 'Select'}, {class: 'form-control'})
   .field.col-md-10
     = f.label :apply_path, 'Application path'
@@ -34,17 +42,17 @@
     .row
       .col-md-3
         = f.number_field :min_amount, class: 'form-control',
-        placeholder: 'Min', min: 0
+        placeholder: 'Min', min: 0, required: 'required'
       .col-md-3
         = f.number_field :max_amount, class: 'form-control',
-        placeholder: 'Max', min: 0
+        placeholder: 'Max', min: 0, required: 'required'
       .col-md-3
-        = f.collection_select(:currency, Currency.all, :id, :name, 
-        { include_blank: 'Select' }, 
+        = f.collection_select(:currency_id, Billing::Currency.order(:abbrv), :id, :abbrv, 
+        { include_blank: 'Select Currency' }, 
         { class: 'form-control', value: 1, required: 'required' })
       .col-md-3
-        = f.collection_select(:billing_type, BillingType.order(:name), 
-        :id, :name, { include_blank: 'Select' },
+        = f.collection_select(:billing_type_id, Billing::BillingType.order(:name), 
+        :id, :name, { include_blank: 'Select Billing Type' },
         { class: 'form-control', required: 'required'})
   
   .actions.col-md-12

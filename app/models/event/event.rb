@@ -2,12 +2,14 @@
 #
 # Table name: events
 #
-#  id         :integer          not null, primary key
-#  date       :date
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer          not null
+#  id          :integer          not null, primary key
+#  date        :date
+#  description :text
+#  name        :string
+#  slug        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer          not null
 #
 # Indexes
 #
@@ -23,7 +25,7 @@ module Event
     friendly_id :name, use: [:slugged]
 
     # Relationships
-    has_many :talks,  class_name: 'Event::Talks', dependent: :delete_all
+    has_many :talks,  class_name: 'Event::Talk', dependent: :delete_all
     belongs_to :user, class_name: 'User::User'
 
     # Validations

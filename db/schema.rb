@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_22_013457) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_13_192013) do
   create_table "billing_types", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -56,6 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_013457) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.text "description"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -159,11 +161,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_013457) do
   create_table "talks", force: :cascade do |t|
     t.string "title"
     t.text "about"
-    t.integer "events_id", null: false
+    t.integer "event_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["events_id"], name: "index_talks_on_events_id"
+    t.string "slug"
+    t.string "speaker_name"
+    t.string "youtube_url"
+    t.string "github_source_link"
+    t.index ["event_id"], name: "index_talks_on_event_id"
     t.index ["user_id"], name: "index_talks_on_user_id"
   end
 
@@ -222,7 +228,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_013457) do
   add_foreign_key "jobs", "users"
   add_foreign_key "partners", "users"
   add_foreign_key "posts", "users"
-  add_foreign_key "talks", "events", column: "events_id"
+  add_foreign_key "talks", "events"
   add_foreign_key "talks", "users"
   add_foreign_key "topics", "talks"
   add_foreign_key "users", "cities"

@@ -1,0 +1,37 @@
+= provide :title, @event.name
+= provide :description, "PLRUG | event #{@event.name}"
+= provide :keywords, "#plrug #ruby #rails #tech #event #techology #{@event.name}"
+= provide :ld_json, {}
+
+%section#hero
+  .container
+    .row
+      .col-md-12{class: 'text-center'}
+        / event
+        %h1{class: 'bold'}
+          = @event.name
+        %p
+          = truncate(@event.description, length: 145)
+
+%section#content
+  .container
+    .row
+      .col-md-12
+        / talks
+        .row
+          - @talks.each do |talk|
+            .col-md-12
+              .panel.panel-default
+                .panel-body
+                  = image_tag('', class: '')
+                  %h4.bold= talk.title
+                  %p= talk.about
+                  %br/
+                  .row
+                    .col-md-12
+                      %h4 Topics.
+                      %hr/
+                      - talk.topics do |topic|
+                        .col-md-12
+                          %h5= topic.title
+                          %p= topic.description

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   before_action :track_visitor
   around_action :switch_locale
 
@@ -8,6 +10,14 @@ class ApplicationController < ActionController::Base
   def switch_locale(&action)
     locale = params[:locale] || I18n.default_locale
     I18n.with_locale(locale, &action)
+  end
+
+  protected
+
+  # devise signup extra params
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :city_id, :country_id])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
   private
@@ -24,6 +34,8 @@ class ApplicationController < ActionController::Base
 
   # Track the visitor's session IP address for use indentification.
   def track_visitor
+    return unless devise_controller?
+
     session_ip = request.remote_ip
     session[:session_ip] = session_ip
   end

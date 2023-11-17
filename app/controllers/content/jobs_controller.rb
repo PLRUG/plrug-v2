@@ -21,11 +21,13 @@ module Content
 
     # GET /jobs/new
     def new
-      @job = Job.new
+      @job = Content::Job.new
     end
 
     # POST /jobs/
     def create
+      byebug
+
       result = Jobs::CreateJob.call(params: job_params, user: current_user)
 
       if result.success?
@@ -100,10 +102,11 @@ module Content
     end
 
     def job_params
-      params.require(:job)
-            .permit(:title, :kind, :location, :apply_path, :remote,
+      params.require(:content_job)
+            .permit(:title, :job_kind_id, :job_level_id, :location, :apply_path, :remote,
                     :description, :min_amount, :max_amount, :currency,
-                    :billing_type)
+                    :billing_type_id, :currency_id, :address, :zipcode,
+                    :city_id, :country_id)
     end
   end
 end
