@@ -3,15 +3,41 @@
 = provide :keywords, "#plrug #ruby #rails #tech #event #techology #{@event.name}"
 = provide :ld_json, {}
 
+= render partial: 'community/talks/talk_modal'
+
 %section#hero
   .container
     .row
       .col-md-12{class: 'text-center'}
-        / event
-        %h1{class: 'bold'}
-          = @event.name
-        %p
-          = truncate(@event.description, length: 145)
+        .jumbotron
+          / event
+          %h1{class: 'bold'}
+            = @event.name
+          %p
+            = truncate(@event.description, length: 145)
+          %ul{class: 'list-unstyled list-inline'}
+            %li
+              %i{class: 'fa-regular fa-calendar'}
+              = Date.today.strftime('%m/%d/%Y')
+            %li
+              %i{class: 'fa-solid fa-location-dot'}
+              Radom
+            %li
+              %i{class: 'fa-solid fa-earth-europe'}
+              Poland
+          %br
+
+          %ul{class: 'list-unstyled list-inline'}
+            %li
+              = link_to new_community_event_talk_path(@event), 
+              class: 'btn btn-danger btn-lg plrug-btn' do
+                %i{class: 'fa-regular fa-paper-plane ico'}
+                Submit a Talk
+            %li
+              = link_to '#', 
+              class: 'btn btn-default btn-lg' do
+                %i{class: 'fa-regular fa-handshake ico'}
+                Become a sponsor
 
 %section#content
   .container
@@ -19,19 +45,39 @@
       .col-md-12
         / talks
         .row
-          - @talks.each do |talk|
-            .col-md-12
-              .panel.panel-default
-                .panel-body
-                  = image_tag('', class: '')
-                  %h4.bold= talk.title
-                  %p= talk.about
-                  %br/
-                  .row
-                    .col-md-12
-                      %h4 Topics.
-                      %hr/
-                      - talk.topics do |topic|
-                        .col-md-12
-                          %h5= topic.title
-                          %p= topic.description
+          .col-md-4
+            %h3{class: 'bold'} 
+              %i{class: 'fa-regular fa-calendar ico'}
+              Schedule
+            %hr
+            
+            .row
+            - @talks.each do |talk|
+              .col-md-12
+                .row
+                  .panel.panel-default
+                    .panel-body
+                      = image_tag('', class: '')
+                      %h4{class: 'bold'}= talk.title
+                      %p= truncate(talk.about, length: 100)
+                      %br/
+
+                      .speaker-info
+                        = image_tag('', class: 'speaker-avatar')
+                        %h5{class: 'speaker-name bold red'} Renato Franco
+                        %p{class: 'speaker-company bold'} PLRUG
+
+          .col-md-8
+            %h3{class: 'bold'} 
+              %i{class: 'fa-solid fa-ranking-star'}
+              Talks
+            %hr
+
+            .row
+              - (1..12).each do |talk|
+                = link_to '', 'data-toggle': 'modal', 'data-target': '#myModal' do
+                  .col-md-4
+                    .panel.panel-default{class: 'talk'}
+                      .panel-body
+                        %i{class: 'fa-regular fa-circle-play play-icon'}
+                        = image_tag('', class: 'talk-thumb')

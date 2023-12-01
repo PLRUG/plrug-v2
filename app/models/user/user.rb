@@ -52,8 +52,9 @@ module User
     enum kind: %i[user company startup]
 
     # Callbacks
-    after_create :create_referral_link
-    after_create :create_coordinates
+    before_create :set_kind
+    after_create  :create_referral_link
+    after_create  :create_coordinates
 
     # Devise Configuration
     devise   :database_authenticatable, :registerable,
@@ -71,5 +72,9 @@ module User
     # Validations
     # validates :address,  presence: true, allow_blank: false, on: :update
     # validates :zip_code, presence: true, allow_blank: false, on: :update
+
+    def set_kind
+      self.kind = 'company'
+    end
   end
 end

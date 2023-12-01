@@ -26,13 +26,11 @@ module Content
 
     # POST /jobs/
     def create
-      byebug
-
       result = Jobs::CreateJob.call(params: job_params, user: current_user)
 
       if result.success?
         flash[:notice] = 'Job created with success.'
-        redirect_to content_job_path(job)
+        redirect_to content_job_path(result.job)
       else
         render :new
       end
@@ -53,7 +51,7 @@ module Content
 
       if result.success?
         flash[:notice] = 'Job updated with success.'
-        redirect_to content_job_path(job)
+        redirect_to content_job_path(result.job)
       else
         render :edit
       end
@@ -105,7 +103,7 @@ module Content
       params.require(:content_job)
             .permit(:title, :job_kind_id, :job_level_id, :location, :apply_path, :remote,
                     :description, :min_amount, :max_amount, :currency,
-                    :billing_type_id, :currency_id, :address, :zipcode,
+                    :billing_type_id, :currency_id, :address, :zip_code,
                     :city_id, :country_id)
     end
   end

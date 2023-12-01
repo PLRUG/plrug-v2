@@ -33,16 +33,6 @@
                   = f.button :submit, "Log in",
                   class: 'btn btn-primary btn-rop full-width'
 
-              .divider
-                or
-
-              = button_to omniauth_authorize_path(resource_name, :github),
-                data: { turbo: false },
-                class: 'btn btn-default btn-lg full-width',
-                style: 'margin-top: 8px;' do
-                %i{class: 'fa-brands fa-github ico'}
-                Signin with Github
-
               %hr
               %ul{class: 'list-unstyled list-inline'}
                 %li{class: 'pull-left'}

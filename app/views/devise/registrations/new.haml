@@ -47,15 +47,8 @@
                   = f.button :submit, "Sign up",
                   class: 'btn btn-primary btn-rop full-width'
 
-              .divider
-                or
-
-              = link_to user_github_omniauth_authorize_path, method: :post,
-                class: 'btn btn-default btn-lg full-width',
-                style: 'margin-top: 8px;' do
-                %i{class: 'fa-brands fa-github ico'}
-                Signup with Github
-
               %hr
               .text-center
-                = render "devise/shared/links"
+                %p 
+                  Already have an account?
+                  = link_to 'Login', new_user_session_path, class: 'bold'

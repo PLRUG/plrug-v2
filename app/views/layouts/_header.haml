@@ -22,18 +22,10 @@
               %span.caret
             %ul.dropdown-menu
               %li
-                = link_to community_events_path do
-                  %i{class: 'fa-solid fa-calendar ico'}
-                  Events
-              %li
                 = link_to 'https://www.meetup.com/topics/ruby/pl/',
                 target: :_blank do
                   %i{class: 'fa-brands fa-meetup ico'}
                   Meetups
-          %li
-            = link_to content_paths_path do
-              %i{class: 'fa-solid fa-play'}
-              Learn
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", 
             "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -42,10 +34,6 @@
               %span.caret
             %ul.dropdown-menu
               %li
-                = link_to content_posts_path do
-                  %i{class: 'fa-brands fa-discourse ico'}
-                  Blog
-              %li
                 = link_to 'https://forum.rubyonrails.pl/',
                 target: :_blank do
                   %i{class: 'fa-brands fa-discourse ico'}
@@ -53,7 +41,7 @@
               %li
                 = link_to 'https://discord.com/invite/bUV9u3PSPF',
                 target: :_blank do
-                  %i{class: 'fa-brands fa-meetup ico'}
+                  %i{class: 'fa-brands fa-discord ico'}
                   Discord
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", 
@@ -98,10 +86,6 @@
                     %i{class: 'fa-solid fa-briefcase ico'}
                     My Jobs
                 %li
-                  = link_to marketing_refer_path do
-                    %i{class: 'fa-solid fa-link ico'}
-                    Refer
-                %li
                   = link_to edit_registration_path(current_user) do
                     %i{class: 'fa-regular fa-circle-user ico'}
                     Account
@@ -110,11 +94,6 @@
                     method: :delete do
                     %i{class: 'fa-solid fa-power-off ico'}
                     Log Out
-
-
-          %li
-            = link_to root_path do
-              Partners
           %li
             = link_to 'https://discord.com/invite/bUV9u3PSPF',
             class: 'btn btn-primary btn-md btn-rop discord' do

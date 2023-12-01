@@ -17,6 +17,7 @@ module PLRUG
     config.eager_load_paths << Rails.root.join('app', 'interfaces')
     config.eager_load_paths << Rails.root.join('models', 'form_objects')
 
+    config.hosts << "5845-177-10-68-250.ngrok-free.app"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
