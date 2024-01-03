@@ -51,12 +51,12 @@ Rails.application.routes.draw do
 
   # Marketing
   # @implemented
-  # namespace :marketing, path: '/' do
+  namespace :marketing, path: '/' do
   #   resources :newsletters, only: %i[create]
-  #   resources :partners, only: %i[create]
+    resources :partners, only: %i[create]
 
   #   get 'refer' => 'refers#index'
-  # end
+  end
 
   # Analytics
   # @implemented
