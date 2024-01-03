@@ -40,6 +40,9 @@ The PLRUG requires:
 - [Ruby v2.7.3](https://ruby-lang.org/en/)
 - [Bundler v2.2.9](https://bundler.io/)
 
+### Fill in .env
+```cp .env.example .env```
+
 ### Run project dependencies via Docker Compose
 Install [Docker Compose](https://docs.docker.com/compose/install/#install-compose).
 

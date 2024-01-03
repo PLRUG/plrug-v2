@@ -15,17 +15,9 @@
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         %ul.nav.navbar-nav
           %li.dropdown
-            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true",
-            "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            = link_to 'https://www.meetup.com/topics/ruby/pl/' do
               %i{class: 'fa-solid fa-people-group ico'}
-              Community
-              %span.caret
-            %ul.dropdown-menu
-              %li
-                = link_to 'https://www.meetup.com/topics/ruby/pl/',
-                target: :_blank do
-                  %i{class: 'fa-brands fa-meetup ico'}
-                  Meetups
+              Meetup
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", 
             "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -34,16 +26,14 @@
               %span.caret
             %ul.dropdown-menu
               %li
-                = link_to 'https://forum.rubyonrails.pl/',
-                target: :_blank do
+                = link_to 'https://forum.rubyonrails.pl/' do
                   %i{class: 'fa-brands fa-discourse ico'}
                   Forum
               %li
-                = link_to 'https://discord.com/invite/bUV9u3PSPF',
-                target: :_blank do
+                = link_to 'https://discord.com/invite/bUV9u3PSPF' do
                   %i{class: 'fa-brands fa-discord ico'}
                   Discord
-          %li.dropdown
+          %li.dropdown.hide
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", 
             "data-toggle" => "dropdown", :href => "#", :role => "button"}
               %i{class: 'fa-solid fa-briefcase ico'}
@@ -59,7 +49,7 @@
                   %i{class: 'fa-solid fa-briefcase ico'}
                   Jobs
 
-        %ul.nav.navbar-nav.navbar-right
+        %ul.nav.navbar-nav.navbar-right.hide
           - if !current_user
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", 

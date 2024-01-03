@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.3'
+ruby '3.1.3'
 
 gem 'bootsnap', require: false
 gem 'bootstrap3-rails'
@@ -38,10 +38,6 @@ gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'view_component'
 gem 'wicked'
 
-group :development, :test do
-  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
-end
-
 group :development do
   gem 'annotate'
   gem 'binding_of_caller'
@@ -56,8 +52,6 @@ group :development do
   gem 'ffaker'
   gem 'flog'
   gem 'overcommit'
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'rails-erd'
   gem 'rspec-rails'
   gem 'rubocop'
@@ -67,8 +61,3 @@ group :development do
   gem 'web-console'
 end
 
-group :test do
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-end
