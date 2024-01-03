@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.3'
 
+gem 'pg'
 gem 'bootsnap', require: false
 gem 'bootstrap3-rails'
 gem 'chartkick'
