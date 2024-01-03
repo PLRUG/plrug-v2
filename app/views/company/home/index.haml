@@ -9,7 +9,7 @@
     .row
       .col-md-12{class: 'tex-center'}
         = image_tag('logo.svg', class: 'logo')
-        %p{class: 'description'} Join the community crafted by <span class='bold black'>Ruby-lovers</span> for<br> web artisans, nerds  and passionates.<br>
+        %p{class: 'description'} Join the community crafted by <span class='bold black'>Ruby lovers</span> for<br> web artisans, nerds  and passionates.<br>
         %ul{class: 'list-unstyled list-inline actions'}
           %li
             = link_to 'https://discord.com/invite/bUV9u3PSPF', 
@@ -106,7 +106,7 @@
                   .panel.panel-default{class: 'group'}
                     .panel-body
                       = image_tag('default.jpg', class: 'avatar pull-left')
-                      %h6{class: 'bold'}= truncate(group.name, length: 10)
+                      %h6{class: 'bold', title: group.name}= truncate(group.name, length: 10)
 
 #contact
   .container
